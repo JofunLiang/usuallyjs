@@ -8,7 +8,7 @@ usually 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作部�
 
 <details>
 <summary>v1.0.0</summary>
-content!!!
+* 更新时间：2019-01-20
 </details>
 
 # 安装
