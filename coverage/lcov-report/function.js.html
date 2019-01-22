@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for function.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> function.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>12/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">39.13% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/23</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @module Function */
+&nbsp;
+/**
+ * 将函数fn转为一次函数。返回函数，函数只能执行一次。
+ * @function noce
+ * @param {function} fn - 执行的函数。
+ * @return {function}
+ * @example
+ * const fn = once(() =&gt; '5')
+ * console.log([fn(), fn()])
+ * // =&gt; ['5', undefined]
+ */
+export const once = fn =&gt; {
+  let called = false
+  return function (...args) {
+    if (called) return
+    called = true
+    return fn.apply(this, args)
+  }
+}
+&nbsp;
+/**
+ * 创建一个新的函数fn，在调用时设置this关键字为提供的值。并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。
+ * @function bind
+ * @param {function} fn - 函数。
+ * @param {obj} context - this绑定的对象。
+ * @param {*} [boundArgs] - 默认参数。
+ * @return {function}
+ * @example
+ * function greet(greeting, punctuation) {
+ *   return greeting + ' ' + this.user + punctuation
+ * }
+ * const freddy = { user: 'fred' }
+ * const freddyBound = U.bind(greet, freddy)
+ * console.log(freddyBound('hi', '!')); 
+ * // =&gt; 'hi fred!'
+ */
+export const bind = (fn, context, ...boundArgs) =&gt; (...args) =&gt; fn.apply(context, [...boundArgs, ...args])
+&nbsp;
+/**
+ * 将函数fn转为防抖函数。返回防抖函数。
+ * @function debounce
+ * @param {function} fn - 函数。
+ * @param {number} [delay=0] - 可选，防抖动延迟时长，单位为ms，默认为0。
+ * @returns {function}
+ * @example
+ * window.addEventListener('resize', U.debounce(() =&gt; {
+ *   console.log(window.innerWidth);
+ *   console.log(window.innerHeight);
+ * }, 250));
+ * // =&gt; 调整浏览器窗口尺寸，在250ms后控制台将打印一次窗口尺寸
+ */
+export const debounce = <span class="fstat-no" title="function not covered" >(f</span>n, delay = <span class="branch-0 cbranch-no" title="branch not covered" >0)</span> =&gt; {
+  let timeoutId
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >fu</span>nction(...args) {</span>
+<span class="cstat-no" title="statement not covered" >    clearTimeout(timeoutId)</span>
+<span class="cstat-no" title="statement not covered" >    timeoutId = setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >fn.apply(this, args),</span> delay)</span>
+  }
+}
+&nbsp;
+/**
+ * 将函数fn转为节流函数。返回节流函数。
+ * @function throttle
+ * @param {function} fn - 函数。
+ * @param {number} wait - 节流时长，单位为ms。
+ * @return {function}
+ * @example
+ * window.addEventListener('resize', U.throttle(function(evt) {
+ *   console.log(window.innerWidth);
+ *   console.log(window.innerHeight);
+ * }, 250));
+ * // 调整浏览器窗口尺寸，没间隔250ms控制台将打印一次窗口尺寸
+ */
+export const throttle = <span class="fstat-no" title="function not covered" >(f</span>n, wait) =&gt; {
+  let inThrottle, lastFn, lastTime
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+    const context = <span class="cstat-no" title="statement not covered" >this,</span> args = <span class="cstat-no" title="statement not covered" >arguments</span>
+<span class="cstat-no" title="statement not covered" >    if (!inThrottle) {</span>
+<span class="cstat-no" title="statement not covered" >      fn.apply(context, args)</span>
+<span class="cstat-no" title="statement not covered" >      lastTime = Date.now()</span>
+<span class="cstat-no" title="statement not covered" >      inThrottle = true</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      clearTimeout(lastFn)</span>
+<span class="cstat-no" title="statement not covered" >      lastFn = setTimeout(<span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+<span class="cstat-no" title="statement not covered" >        if (Date.now() - lastTime &gt;= wait) {</span>
+<span class="cstat-no" title="statement not covered" >          fn.apply(context, args)</span>
+<span class="cstat-no" title="statement not covered" >          lastTime = Date.now()</span>
+        }
+      }, Math.max(wait - (Date.now() - lastTime), 0))
+    }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 22 2019 20:57:08 GMT+0800 (中国标准时间)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>

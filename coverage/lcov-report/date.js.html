@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for date.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> date.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>24/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.31% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>12/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/22</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">105x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @module Date */
+&nbsp;
+/**
+ * 格式化日期。如果value无法被new Date()转换为日期对象，返回空字符串。
+ * @function dateFormat
+ * @param {date} [date=new Date()] - 可选，需要格式化的日期，默认是当前时间。
+ * @param {string} [format='YYYY-MM-DD']- 可选，格式化的格式，默认是`YYYY-MM-DD`格式。
+ * @return {string}
+ * @example
+ * U.dateFormat(new Date(2018, 11, 10))
+ * // =&gt; '2018-12-10'
+ *
+ * U.dateFormat(new Date(2018, 11, 10, 10, 29, 36), 'YYYY-MM-DD hh:mm:ss')
+ * // =&gt; '2018-12-10 10:29:36'
+ *
+ * U.dateFormat(1545484848484, 'YYYY-MM-DD hh:mm:ss')
+ * // =&gt; '2018-12-22 21:20:48'
+ */
+export const dateFormat = (date = new Date(), format = 'YYYY-MM-DD') =&gt; {
+  const d = new Date(date)
+  const zeroize = val =&gt; val &lt; 10 ? `0${val}` : `${val}`
+  return format.replace(
+    /YYYY|MM|DD|hh|mm|ss/g,
+    word =&gt; ({
+      'YYYY': d.getFullYear(),
+      'MM': zeroize(d.getMonth() + 1),
+      'DD': zeroize(d.getDate()),
+      'hh': zeroize(d.getHours()),
+      'mm': zeroize(d.getMinutes()),
+      'ss': zeroize(d.getSeconds())
+    }[word] || <span class="branch-1 cbranch-no" title="branch not covered" >word)</span>
+  )
+}
+&nbsp;
+/**
+ * 获取某月的总天数，date可以是任意能被new Date()格式化为日期对象的值。
+ * @function getMonthDays
+ * @param {date} [date=new Date()] - 可选，日期，默认是当前时间。
+ * @return {number}
+ * @example
+ * U.getMonthDays(new Date(2018, 1))
+ * // =&gt; 28
+ *
+ * U.getMonthDays(153454878787)
+ * // =&gt; 30
+ */
+export const getMonthDays = (date = new Date()) =&gt; {
+  const d = new Date(date)
+  d.setMonth(d.getMonth() + 1)
+  d.setDate(0)
+  return d.getDate()
+}
+&nbsp;
+/**
+ * 获取星期名称，lang代表输出语言。date为日期，可以是任意能被new Date()格式化为日期对象的值。
+ * @function getWeekday
+ * @param {string} [lang='zh'] - 可选，输出语言，默认为'zh'，当该值为undefined时取'zh'——表示中文，'en'——表示英文。
+ * @param {data} [date=new Date()] - 可选，日期，默认为当前日期。
+ * @return {string}
+ * @example
+ * U.getWeekday('zh', new Date(2018, 1, 1))
+ * // =&gt; '星期四'
+ *
+ * * U.getWeekday('zh', '2018/2/1')
+ * // =&gt; '星期四'
+ * 
+ * U.getWeekday('en', 153454878787)
+ * // =&gt; 'Tuesday'
+ */
+export const getWeekday = (lang = 'zh', date = new Date()) =&gt; {
+  const day = new Date(date).getDay()
+  return lang === 'en'
+    ? ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][day]
+    : '星期' + '日一二三四五六'.charAt(day)
+}
+&nbsp;
+/**
+ * 获取上一个月份
+ * @function prevMonth
+ * @param {*} [date=new Date()]- 可选，日期，默认是当前时间。
+ * @return {date}
+ * @example
+ * U.prevMonth()
+ * // =&gt; 2018-11-20T17:07:37.937Z (当前时间为2018-12)
+ *
+ * U.prevMonth(new Date(2018, 10, 9))
+ * // =&gt; 2018-10-08T16:00:00.000Z
+ * 
+ * U.prevMonth(153454878787)
+ * // =&gt; 1974-10-12T02:21:18.787Z
+ * 
+ * U.prevMonth('2018/12/3')
+ * // =&gt; 2018-11-02T16:00:00.000Z
+ */
+export const prevMonth = (date = new Date()) =&gt; {
+  let d = new Date(date)
+  d.setMonth(d.getMonth() - 1)
+  return d
+}
+&nbsp;
+/**
+ * 获取下一个月份
+ * @function nextMonth
+ * @param {date} [date=new Date()] - 可选，日期，默认是当前时间。
+ * @return {date}
+ * @example
+ * U.nextMonth()
+ * // =&gt; 2019-01-20T17:13:15.179Z (当前时间为2018-12)
+ *
+ * U.nextMonth(new Date(2018, 10, 9))
+ * // =&gt; 2018-10-08T16:00:00.000Z
+ * 
+ * U.nextMonth(153454878787)
+ * // =&gt; 1974-12-12T02:21:18.787Z
+ * 
+ * U.nextMonth('2018/12/3')
+ * // =&gt; 2018-11-02T16:00:00.000Z
+ */
+export const nextMonth = (date = new Date()) =&gt; {
+  let d = new Date(date)
+  d.setMonth(d.getMonth() + 1)
+  return d
+}
+&nbsp;
+/**
+ * 比较日期dateA是否是dateB之后的日期，返回布尔值
+ * @function isAfterDate
+ * @param {date} dateA - 较后的日期。
+ * @param {date} dateB - 较前的日期。
+ * @return {boolean}
+ * @example
+ * U.isAfterDate('2018/11/1', '2018/11/30')
+ * // =&gt; false
+ *
+ * U.isAfterDate(new Date(2018, 12, 11), new Date(2018, 12, 10))
+ * // =&gt; true
+ */
+export const isAfterDate = (dateA, dateB) =&gt; new Date(dateA) &gt; new Date(dateB)
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 22 2019 20:57:08 GMT+0800 (中国标准时间)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>

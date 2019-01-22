@@ -1,0 +1,38 @@
+{
+  "name": "usually",
+  "version": "1.0.0",
+  "description": "A JavaScript utility library for modern web development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "jsdoc": "jsdoc -c jsdoc.config.json ./README.md",
+    "dev": "rollup -w -c",
+    "build": "rollup -c && npm run jsdoc && npm run test"
+  },
+  "jest": {
+    "testRegex": "/test/.*.test.js?$"
+  },
+  "author": "jofun",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/runtime": "^7.2.0",
+    "@babel/runtime-corejs2": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "docdash": "^1.0.1",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.13.1",
+    "rollup": "^0.67.4",
+    "rollup-plugin-babel": "^4.1.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-eslint": "^5.0.0",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-uglify": "^6.0.0"
+  }
+}

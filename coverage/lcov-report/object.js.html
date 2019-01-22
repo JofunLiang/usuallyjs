@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for object.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> object.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>21/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.86% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>13/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/19</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @module Object */
+&nbsp;
+/**
+ * 对象深复制函数
+ * @function deepClone
+ * @param {object} obj - 深复制的源对象
+ * @return {object}
+ * @example
+ * var a = { foo: 'bar', obj: { a: 1, b: 2 } }
+ * var b = U.deepClone(a)
+ * b.foo = 'foo'
+ * // =&gt; a = { foo: 'bar', obj: { a: 1, b: 2 } }, b = { foo: 'foo', obj: { a: 1, b: 2 } }
+ */
+export const deepClone = obj =&gt; {
+  let clone = Object.assign({}, obj)
+  Object.keys(clone).forEach(k =&gt; {
+    clone[k] = typeof obj[k] === 'object' ? deepClone(obj[k]) : obj[k]
+  })
+  return Array.isArray(obj) ? (clone.length = obj.length) &amp;&amp; Array.from(clone) : clone
+}
+&nbsp;
+/**
+ * 对象深冻结函数
+ * @function deepFreeze
+ * @param {object} obj - 深冻结的源对象
+ * @return {object}
+ * @example
+ * let arr = [1, [2, 3]]
+ * const o = U.deepFreeze(arr)
+ * o[0] = 3
+ * o[1][0] = 4
+ * // =&gt; arr = [1, [2, 3]], o = [1, [2, 3]]
+ */
+export const deepFreeze = obj =&gt; {
+  Object.keys(obj).forEach(prop =&gt; {
+    if (obj[prop] instanceof Object &amp;&amp; obj[prop] !== null) {
+      deepFreeze(obj[prop])
+    }
+  })
+  return Object.freeze(obj)
+}
+&nbsp;
+/**
+ * 为对象中的属性分配默认值。
+ * @function defaults
+ * @param {object} obj - 目标对象
+ * @param {...object} defs - 源对象（用于扩展目标对象属性）
+ * @return {object}
+ * @example
+ * U.defaults({ a: 1, c: 5, d: 8}, { b: 2 }, { a: 3, c: 7})
+ * // =&gt; { a: 1, c: 5, d: 8, b: 2 }
+ */
+export const defaults = (obj, ...defs) =&gt; Object.assign({}, obj, ...defs.reverse(), obj)
+&nbsp;
+/**
+ * 重命名对象的key名称。
+ * @function renameKeys
+ * @param {object} map - 由oldKey：newKey键值对组成的对象
+ * @param {object} obj - 目标对象
+ * @return {object}
+ * @example
+ * let obj = {name: 'john', job: 'fonts', detail: [1, 2]}
+ * U.renameKeys({job: 'possion'}, obj)
+ * // =&gt; { name: 'john', possion: 'fonts', detail: [ 1, 2 ] }
+ */
+export const renameKeys = (map, obj) =&gt; (
+  Object.keys(obj)
+    .reduce((acc, key) =&gt; ({
+      ...acc,
+      ...{ [map[key] || key]: obj[key] }
+    }), {})
+)
+&nbsp;
+/**
+ * 从对象中省略与给定键对应的键值对。
+ * @function omit
+ * @param {object} obj - 目标对象
+ * @param {array} arr - 省略的键名数组
+ * @return {object}
+ * @example
+ * U.omit({ a: 1, b: '2', c: 3 }, ['b'])
+ * // =&gt; { a: 1, c: 3 }
+ */
+export const omit = (obj, arr) =&gt; (
+  Object.keys(obj)
+    .filter(k =&gt; !arr.includes(k))
+    .reduce((acc, key) =&gt; ((acc[key] = obj[key]), acc), {})
+)
+&nbsp;
+/**
+ * 判断val是否是空对象。
+ * @function isEmpty
+ * @param {*} val - 检查的对象
+ * @return {boolean}
+ * @example
+ * U.isEmpty(new Map()) // =&gt; true
+ * U.isEmpty(new Set()) // =&gt; true
+ * U.isEmpty({}) // =&gt; true
+ * U.isEmpty([]) // =&gt; true
+ * U.isEmpty('') // =&gt; true
+ * U.isEmpty({a: 1}) // =&gt; false
+ * U.isEmpty([2]) // =&gt; false
+ * U.isEmpty('text') // =&gt; false
+ * U.isEmpty(123) // =&gt; true
+ * U.isEmpty(true) // =&gt; true
+ * U.isEmpty(false) // =&gt; true
+ */
+export const isEmpty = val =&gt; !(Object.keys(val) || <span class="branch-1 cbranch-no" title="branch not covered" >val)</span>.length
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 22 2019 20:57:08 GMT+0800 (中国标准时间)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "tags": {
+    "allowUnknownTags": true, // 允许使用无法识别的标签
+    "dictionaries": ["jsdoc", "closure"]  // 启用两个标准JSDoc标签和closure标签
+  },
+  "source": {
+    "include": "./src/",  // 可选的路径数组，JSDoc应该为它们生成文档。
+    "exclude": ["./src/index.js"],  // 可选的路径数组，JSDoc应该忽略的路径。
+    "includePattern": ".js$",  // 一个可选的字符串，解释为一个正则表达式。此处只有js文件将会被JSDoc处理
+    "excludePattern": "(^|\\/|\\\\)_"  // 一个可选的字符串，解释为一个正则表达式。任何以下划线开始的文件或目录都将被JSDoc忽略
+  },
+  "opts": {  // 设置的命令行选项
+    "template": "node_modules/docdash",  // 设置模板，此处使用docdash模板node_modules/docdash
+    "encoding": "utf8",               // 字符编码格式
+    "destination": "./docs/",          // 文档输出目录
+    "recurse": true, // 是否递归查找
+    "verbose": true
+    // "tutorials": "path/to/tutorials" // tutorials的配置文件
+  },
+  "plugins": [],  // 无插件加载
+  "templates": {  // 模板设置，以下模板使用@link标签呈现在纯文本
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "docdash": {  // 配置模板
+    "search": [true], // 是否启用搜索框
+    "sort": false, // 是否排序
+    "collapse": false, // 是否折叠导航
+    "openGraph": {                  // Open Graph options (mostly for Facebook and other sites to easily extract meta information)
+      "title": "usuallyJS",                // Title of the website
+      "type": "website",          // Type of the website
+      "image": "",                // Main image/logo
+      "site_name": "usuallyJS",            // Site name
+      "url": ""                   // Main canonical URL for the main page of the site
+    },
+    "meta": {                       // Meta information options (mostly for search engines that have not indexed your site yet)
+      "title": "usuallyJS",                // Also will be used as postfix to actualy page title, prefixed with object/document name
+      "description": "一个轻量级的 JavaScript 函数实用工具库",          // Description of overal contents of your website
+      "keyword": "JavaScript,函数库,函数工具库"               // Keywords for search engines
+    }
+  }
+}
