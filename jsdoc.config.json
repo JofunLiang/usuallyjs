@@ -27,16 +27,16 @@
     "sort": false, // 是否排序
     "collapse": false, // 是否折叠导航
     "openGraph": {                  // Open Graph options (mostly for Facebook and other sites to easily extract meta information)
-      "title": "usuallyJS",                // Title of the website
+      "title": "usually - 一个面向现代 Web 开发的 JavaScript 实用函数库", // Title of the website
       "type": "website",          // Type of the website
       "image": "",                // Main image/logo
-      "site_name": "usuallyJS",            // Site name
-      "url": ""                   // Main canonical URL for the main page of the site
+      "site_name": "usually - 一个面向现代 Web 开发的 JavaScript 实用函数库",            // Site name
+      "url": "http://www.jofun.win/usually/" // Main canonical URL for the main page of the site
     },
     "meta": {                       // Meta information options (mostly for search engines that have not indexed your site yet)
-      "title": "usuallyJS",                // Also will be used as postfix to actualy page title, prefixed with object/document name
-      "description": "一个轻量级的 JavaScript 函数实用工具库",          // Description of overal contents of your website
-      "keyword": "JavaScript,函数库,函数工具库"               // Keywords for search engines
+      "title": "usually - 一个面向现代 Web 开发的 JavaScript 实用函数库",                // Also will be used as postfix to actualy page title, prefixed with object/document name
+      "description": "一个面向现代 Web 开发的 JavaScript 实用函数库",          // Description of overal contents of your website
+      "keyword": "JavaScript,vue,react,web,函数库,实用函数"               // Keywords for search engines
     }
   }
 }

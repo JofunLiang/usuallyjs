@@ -8,10 +8,51 @@ usually 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作部�
 
 <details>
 <summary>v1.0.0</summary>
-* 更新时间：2019-01-20
+1、更新时间：2019-01-20
 </details>
 
-# 安装
+# 安装和使用
+
+### npm安装和使用
+
+通过 npm 使用如下命令安装：
+```
+npm install --save-dev usually
+```
+
+通过 es6 模块引用：
+```javascript
+// 整包引入
+import U from 'usually'
+
+// 部分引入
+import { random } from 'usually/number'
+
+```
+
+### 浏览器安装和使用
+
+下载本存储库，在页面中通过 script 标签引入 dist 文件夹下的 usually.js 文件即可，建议使用压缩版本 usually.min.js。通过命名空间 U 调用相关的函数。
+如：
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>usually浏览器安装和使用示例</title>
+    <script src="dist/usually.js"></script>
+	</head>
+	<body>
+    <script>
+      var a = U.random()
+    </script>
+	</body>
+</html>
+```
+
+# 浏览器兼容
+
+支持 IE9+ 和现代浏览器
 
 # LICENSE
 
