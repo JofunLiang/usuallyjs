@@ -1,5 +1,5 @@
 TN:
-SF:C:\Users\jofun\Desktop\usually\src\array.js
+SF:C:\Users\jofun\Desktop\usuallyjs\src\array.js
 FN:16,(anonymous_0)
 FN:28,(anonymous_1)
 FN:39,(anonymous_2)
@@ -32,7 +32,7 @@ BRF:5
 BRH:5
 end_of_record
 TN:
-SF:C:\Users\jofun\Desktop\usually\src\date.js
+SF:C:\Users\jofun\Desktop\usuallyjs\src\date.js
 FN:19,(anonymous_0)
 FN:21,(anonymous_1)
 FN:24,(anonymous_2)
@@ -77,8 +77,8 @@ LF:22
 LH:22
 BRDA:19,0,0,1
 BRDA:19,1,0,3
-BRDA:21,2,0,15
-BRDA:21,2,1,90
+BRDA:21,2,0,33
+BRDA:21,2,1,72
 BRDA:24,3,0,21
 BRDA:24,3,1,0
 BRDA:47,4,0,1
@@ -92,7 +92,7 @@ BRF:13
 BRH:10
 end_of_record
 TN:
-SF:C:\Users\jofun\Desktop\usually\src\function.js
+SF:C:\Users\jofun\Desktop\usuallyjs\src\function.js
 FN:13,(anonymous_0)
 FN:15,(anonymous_1)
 FN:38,(anonymous_2)
@@ -151,7 +151,7 @@ BRF:7
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\jofun\Desktop\usually\src\number.js
+SF:C:\Users\jofun\Desktop\usuallyjs\src\number.js
 FN:19,(anonymous_0)
 FN:46,(anonymous_1)
 FN:49,(anonymous_2)
@@ -208,7 +208,7 @@ BRF:26
 BRH:26
 end_of_record
 TN:
-SF:C:\Users\jofun\Desktop\usually\src\object.js
+SF:C:\Users\jofun\Desktop\usuallyjs\src\object.js
 FN:14,(anonymous_0)
 FN:16,(anonymous_1)
 FN:34,(anonymous_2)
@@ -272,7 +272,7 @@ BRF:14
 BRH:13
 end_of_record
 TN:
-SF:C:\Users\jofun\Desktop\usually\src\string.js
+SF:C:\Users\jofun\Desktop\usuallyjs\src\string.js
 FN:18,(anonymous_0)
 FN:29,(anonymous_1)
 FN:41,(anonymous_2)
@@ -334,7 +334,7 @@ BRF:13
 BRH:11
 end_of_record
 TN:
-SF:C:\Users\jofun\Desktop\usually\src\type.js
+SF:C:\Users\jofun\Desktop\usuallyjs\src\type.js
 FN:12,(anonymous_0)
 FN:34,(anonymous_1)
 FN:48,(anonymous_2)

@@ -1,5 +1,5 @@
 {
-  "name": "usually",
+  "name": "usuallyjs",
   "version": "1.0.0",
   "description": "A JavaScript utility functions library for modern web development.",
   "main": "src/index.js",
@@ -19,16 +19,16 @@
   "author": "jofun",
   "repository": {
     "type": "git",
-    "url": "git@github.com:JofunLiang/usually.git"
+    "url": "git@github.com:JofunLiang/usuallyjs.git"
   },
-  "homepage": "http://www.jofun.win/usually/",
+  "homepage": "http://www.jofun.win/usuallyjs/",
   "keywords": [
-    "usually",
+    "usuallyjs",
     "utils"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JofunLiang/usually/issues"
+    "url": "https://github.com/JofunLiang/usuallyjs/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",

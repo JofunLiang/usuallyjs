@@ -1,8 +1,8 @@
-# usually
+# usuallyjs
 
-usually 是一个面向现代 Web 开发的 JavaScript 实用函数库。
+usuallyjs 是一个面向现代 Web 开发的 JavaScript 实用函数库。
 
-usually 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作部分的内容，精选了一系列 Web 开发过程中最常用的、最实用的 JavaScript 函数。与 Vue、React、Angular等现代 Web 框架搭配使用，更好的服务于开发现代 Web 应用。
+usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作部分的内容，精选了一系列 Web 开发过程中最常用的、最实用的 JavaScript 函数。与 Vue、React、Angular等现代 Web 框架搭配使用，更好的服务于开发现代 Web 应用。
 
 # 版本历史/更改日志
 
@@ -17,16 +17,16 @@ usually 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作部�
 
 通过 npm 使用如下命令安装：
 ```
-npm install --save-dev usually
+npm install --save-dev usuallyjs
 ```
 
 通过 es6 模块引用：
 ```javascript
 // 整包引入
-import U from 'usually'
+import U from 'usuallyjs'
 
 // 部分引入
-import { random } from 'usually/number'
+import { random } from 'usuallyjs/number'
 
 ```
 
