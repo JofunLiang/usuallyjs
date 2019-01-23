@@ -7,7 +7,7 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
-<summary>v1.0.0</summary>
+<summary>v1.0.2</summary>
 1、更新时间：2019-01-20
 </details>
 
@@ -22,11 +22,7 @@ npm install --save-dev usuallyjs
 
 通过 es6 模块引用：
 ```javascript
-// 整包引入
 import U from 'usuallyjs'
-
-// 部分引入
-import { random } from 'usuallyjs/number'
 
 ```
 
