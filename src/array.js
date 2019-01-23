@@ -36,11 +36,9 @@ export const uniqueItems = arr => [...new Set(arr)]
  * U.repeatItems([1, 1, 2, 3, 3, 4, 5])
  * // => [1, 3]
  */
-export const repeatItems = arr => (
-  arr.filter(
-    (item, i) => (
-      arr.indexOf(item) === i && arr.indexOf(item) !== arr.lastIndexOf(item)
-    )
+export const repeatItems = arr => arr.filter(
+  (item, i) => (
+    arr.indexOf(item) === i && arr.indexOf(item) !== arr.lastIndexOf(item)
   )
 )
 

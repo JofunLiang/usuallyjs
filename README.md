@@ -7,6 +7,14 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
+<summary>v1.0.3</summary>
+1、更新时间：2019-01-24
+2、更新内容：
+  1）、优化 random 函数
+  2）、优化 repeatItems 函数
+</details>
+
+<details>
 <summary>v1.0.0</summary>
 1、更新时间：2019-01-20
 </details>
