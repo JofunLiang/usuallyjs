@@ -45,8 +45,6 @@ test('prevMonth', () => {
   expect(d).toBe('2018-10-08T16:00:00.000Z')
   d = U.prevMonth(153454878787).toISOString()
   expect(d).toBe('1974-10-12T02:21:18.787Z')
-  d = U.prevMonth().toISOString() === U.prevMonth(new Date()).toISOString()
-  expect(d).toBeTruthy()
   d = U.prevMonth('2018/12/3').toISOString()
   expect(d).toBe('2018-11-02T16:00:00.000Z')
 })
@@ -54,8 +52,6 @@ test('prevMonth', () => {
 test('nextMonth', () => {
   let d = U.nextMonth(new Date(2018, 10, 9)).toISOString()
   expect(d).toBe('2018-12-08T16:00:00.000Z')
-  d = U.nextMonth().toISOString() === U.nextMonth(new Date()).toISOString()
-  expect(d).toBeTruthy()
   d = U.nextMonth(153454878787).toISOString()
   expect(d).toBe('1974-12-12T02:21:18.787Z')
   d = U.nextMonth('2018/12/3').toISOString()

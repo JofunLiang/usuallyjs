@@ -1,8 +1,12 @@
 {
   "name": "usually",
   "version": "1.0.0",
-  "description": "A JavaScript utility library for modern web development.",
-  "main": "index.js",
+  "description": "A JavaScript utility functions library for modern web development.",
+  "main": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "test": "jest --coverage",
     "jsdoc": "jsdoc -c jsdoc.config.json ./README.md",
@@ -13,7 +17,19 @@
     "testRegex": "/test/.*.test.js?$"
   },
   "author": "jofun",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JofunLiang/usually.git"
+  },
+  "homepage": "http://www.jofun.win/usually/",
+  "keywords": [
+    "usually",
+    "utils"
+  ],
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JofunLiang/usually/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",

@@ -37,16 +37,16 @@ import { random } from 'usually/number'
 ```html
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>usually浏览器安装和使用示例</title>
+  <head>
+    <meta charset="utf-8">
+    <title>usually浏览器安装和使用示例</title>
     <script src="dist/usually.js"></script>
-	</head>
-	<body>
+  </head>
+  <body>
     <script>
       var a = U.random()
     </script>
-	</body>
+  </body>
 </html>
 ```
 
