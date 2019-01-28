@@ -1,6 +1,6 @@
 {
   "name": "usuallyjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A JavaScript utility functions library for modern web development.",
   "main": "dist/usually.js",
   "files": [
