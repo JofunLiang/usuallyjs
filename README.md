@@ -65,6 +65,12 @@ const U = require('usuallyjs')
 
 支持 IE9+ 和现代浏览器
 
+# 贡献
+
+在提出拉取请求之前，请务必阅读[贡献指南](./CONTRIBUTING.md)。
+
+感谢所有为Vue做出贡献的人！
+
 # LICENSE
 
 MIT
