@@ -2,16 +2,16 @@
 
 嗨！我很高兴你有兴趣为usuallyjs做贡献。在提交您的贡献之前，请务必花点时间阅读以下指南。
 
-* [问题报告指南](https://github.com/JofunLiang/usuallyjs/blob/master/CONTRIBUTING.md#issue-reporting)
-* [拉请求指南](https://github.com/JofunLiang/usuallyjs/blob/master//CONTRIBUTING.md#pull-request)
-* [开发设置](https://github.com/JofunLiang/usuallyjs/blob/master//CONTRIBUTING.md#development-setup)
-* [项目结构](https://github.com/JofunLiang/usuallyjs/blob/master//CONTRIBUTING.md#project-structure)
+* [问题报告指南](#问题报告指南)
+* [拉请求指南](#拉请求指南)
+* [开发设置](#开发设置)
+* [项目结构](#项目结构)
 
-<h3 id="issue-reporting">问题报告指南</h3>
+### 问题报告指南
 
 * 始终使用[https://github.com/JofunLiang/usuallyjs/issues](https://github.com/JofunLiang/usuallyjs/issues)来创建新问题。
 
-<h3 id="pull-request">拉请求指南</h3>
+### 拉请求指南
 
 * 该master分支基本上只是最新稳定版本。所有开发都应该在专门的分支中完成 不要向master分支提交PR 。
 
@@ -28,7 +28,7 @@
   * 提供错误的详细描述。
   * 如果可以，请添加适当的测试范围。
 
-<h3 id="development-setup">开发设置</h3>
+### 开发设置
 
 您需要配置[Node.js](https://nodejs.org/en/)环境和[jsDoc](http://usejsdoc.org/)运行环境。
 
@@ -58,7 +58,7 @@ $ npm run jsdoc
 
 该package.json文件的scripts部分中还有一些其他脚本可用。
 
-<h3 id="project-structure">项目结构</h3>
+### 项目结构
 
 * dist：包含用于分发的构建文件。请注意，此目录仅在发布时更新; 它们没有反映开发分支的最新变化。
 
