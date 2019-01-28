@@ -4,18 +4,35 @@ usuallyjs 是一个面向现代 Web 开发的 JavaScript 实用函数库。
 
 usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作部分的内容，精选了一系列 Web 开发过程中最常用的、最实用的 JavaScript 函数。与 Vue、React、Angular等现代 Web 框架搭配使用，更好的服务于开发现代 Web 应用。
 
+[GitHub](https://github.com/JofunLiang/usuallyjs)
+
+[文档](http://www.jofun.win/usuallyjs/)
+
 # 版本历史/更改日志
 
 <details>
-<summary>v1.0.3</summary>
-1、更新时间：2019-01-24
-2、更新内容：
-  1）、优化 random 函数
-  2）、优化 repeatItems 函数
-</details>
+<summary>v1.0.4</summary><br />
+1、更新时间：2019-01-28<br />
 
+2、更新内容：<br />
+
+（1）、添加贡献指南<br />
+（2）、完善配置项，如：生成文档自启动浏览器
+</details>
+<br />
 <details>
-<summary>v1.0.0</summary>
+<summary>v1.0.3</summary><br />
+1、更新时间：2019-01-24<br />
+
+2、更新内容：<br />
+
+（1）、优化 random 函数<br />
+  
+（2）、优化 repeatItems 函数
+</details>
+<br />
+<details>
+<summary>v1.0.0</summary><br />
 1、更新时间：2019-01-20
 </details>
 
@@ -61,6 +78,12 @@ const U = require('usuallyjs')
 # 浏览器兼容
 
 支持 IE9+ 和现代浏览器
+
+# 贡献
+
+在提出拉取请求之前，请务必阅读[贡献指南](./CONTRIBUTING.md)。
+
+感谢所有为usuallyjs做出贡献的人！
 
 # LICENSE
 
