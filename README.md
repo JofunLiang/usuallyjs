@@ -69,7 +69,7 @@ const U = require('usuallyjs')
 
 在提出拉取请求之前，请务必阅读[贡献指南](./CONTRIBUTING.md)。
 
-感谢所有为Vue做出贡献的人！
+感谢所有为usuallyjs做出贡献的人！
 
 # LICENSE
 
