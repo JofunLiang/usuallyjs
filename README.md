@@ -6,10 +6,19 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 
 [GitHub](https://github.com/JofunLiang/usuallyjs)
 
-[文档](http://www.jofun.win/usuallyjs/)
+[文档](https://jofunliang.github.io/usuallyjs/)
 
 # 版本历史/更改日志
 
+<details>
+<summary>v1.1.4</summary><br />
+1、更新时间：2019-02-20<br />
+
+2、更新内容：<br />
+
+（1）、新增 spreadDate 函数<br />
+</details>
+<br />
 <details>
 <summary>v1.0.4</summary><br />
 1、更新时间：2019-01-28<br />
@@ -81,7 +90,7 @@ const U = require('usuallyjs')
 
 # 贡献
 
-在提出拉取请求之前，请务必阅读[贡献指南](./CONTRIBUTING.md)。
+在提出拉取请求之前，请务必阅读[贡献指南](https://github.com/JofunLiang/usuallyjs/blob/master/CONTRIBUTING.md)。
 
 感谢所有为usuallyjs做出贡献的人！
 

@@ -42,7 +42,7 @@
 
   var objectSpread = _objectSpread;
 
-  var version = "1.0.4";
+  var version = "1.1.4";
 
   function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -677,6 +677,27 @@
   var isAfterDate = function isAfterDate(dateA, dateB) {
     return new Date(dateA) > new Date(dateB);
   };
+  /**
+   * 返回距离date为n天的日期
+   * @function spreadDate
+   * @param {number} n - 天数。当n为负数，返回过去的日期；当n为正数，返回未来的日期。
+   * @param {date} [date=new Date()] - 可选，日期，默认为当前日期。
+   * @return {date}
+   * @example
+   * U.spreadDate(1)
+   * // => Thu Feb 21 2019 21:01:53 GMT+0800 (当前时间：Wed Feb 20 2019 21:01:53 GMT+0800 )
+   *
+   * U.spreadDate(1)
+   * // => Thu Feb 19 2019 21:01:53 GMT+0800 (当前时间：Wed Feb 20 2019 21:01:53 GMT+0800 )
+   * 
+   * U.spreadDate(7, new Date(2018, 9, 10))
+   * // => Wed Oct 17 2018 00:00:00 GMT+0800 (中国标准时间)
+   */
+
+  var spreadDate = function spreadDate(n) {
+    var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new Date();
+    return new Date(+date + n * 24 * 60 * 60 * 1000);
+  };
 
   var date = /*#__PURE__*/Object.freeze({
     dateFormat: dateFormat,
@@ -684,7 +705,8 @@
     getWeekday: getWeekday,
     prevMonth: prevMonth,
     nextMonth: nextMonth,
-    isAfterDate: isAfterDate
+    isAfterDate: isAfterDate,
+    spreadDate: spreadDate
   });
 
   function _arrayWithoutHoles(arr) {
