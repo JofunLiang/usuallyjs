@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>24/24</span>
+        <span class='fraction'>26/26</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">76.92% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>10/13</span>
+        <span class='fraction'>12/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>22/22</span>
+        <span class='fraction'>23/23</span>
       </div>
     </div>
   </div>
@@ -181,7 +181,25 @@
 136
 137
 138
-139</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,10 +246,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -300,9 +318,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -319,6 +337,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @module Date */
 &nbsp;
 /**
@@ -437,7 +473,7 @@ export const prevMonth = (date = <span class="branch-0 cbranch-no" title="branch
  * U.nextMonth('2018/12/3')
  * // =&gt; 2018-11-02T16:00:00.000Z
  */
-export const nextMonth = (date = <span class="branch-0 cbranch-no" title="branch not covered" >new Date())</span> =&gt; {
+export const nextMonth = (date = new Date()) =&gt; {
   let d = new Date(date)
   d.setMonth(d.getMonth() + 1)
   return d
@@ -457,13 +493,31 @@ export const nextMonth = (date = <span class="branch-0 cbranch-no" title="branch
  * // =&gt; true
  */
 export const isAfterDate = (dateA, dateB) =&gt; new Date(dateA) &gt; new Date(dateB)
+&nbsp;
+/**
+ * 返回距离date为n天的日期
+ * @function spreadDate
+ * @param {number} n - 天数。当n为负数，返回过去的日期；当n为正数，返回未来的日期。
+ * @param {date} [date=new Date()] - 可选，日期，默认为当前日期。
+ * @return {date}
+ * @example
+ * U.spreadDate(1)
+ * // =&gt; Thu Feb 21 2019 21:01:53 GMT+0800 (当前时间：Wed Feb 20 2019 21:01:53 GMT+0800 )
+ *
+ * U.spreadDate(1)
+ * // =&gt; Thu Feb 19 2019 21:01:53 GMT+0800 (当前时间：Wed Feb 20 2019 21:01:53 GMT+0800 )
+ * 
+ * U.spreadDate(7, new Date(2018, 9, 10))
+ * // =&gt; Wed Oct 17 2018 00:00:00 GMT+0800 (中国标准时间)
+ */
+export const spreadDate = (n, date = new Date()) =&gt; new Date(+date + n * 24 * 60 * 60 * 1000)
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jan 24 2019 02:02:43 GMT+0800 (中国标准时间)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 20 2019 21:44:35 GMT+0800 (中国标准时间)
 </div>
 </div>
 <script src="prettify.js"></script>

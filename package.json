@@ -1,6 +1,6 @@
 {
   "name": "usuallyjs",
-  "version": "1.0.4",
+  "version": "1.1.4",
   "description": "A JavaScript utility functions library for modern web development.",
   "main": "dist/usually.js",
   "files": [
@@ -12,7 +12,7 @@
     "server": "node server.js",
     "jsdoc": "jsdoc -c jsdoc.config.json ./README.md && npm run server",
     "dev": "rollup -w -c",
-    "build": "rollup -c && npm run jsdoc && npm run test"
+    "build": "rollup -c && npm run test && npm run jsdoc"
   },
   "jest": {
     "testRegex": "/test/.*.test.js?$"

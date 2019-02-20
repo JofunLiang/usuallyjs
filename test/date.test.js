@@ -56,6 +56,8 @@ test('nextMonth', () => {
   expect(d).toBe('1974-12-12T02:21:18.787Z')
   d = U.nextMonth('2018/12/3').toISOString()
   expect(d).toBe('2019-01-02T16:00:00.000Z')
+  d = U.nextMonth() - new Date() === U.getMonthDays() * 24 * 60 * 60 * 1000
+  expect(d).toBeTruthy()
 })
 
 test('isAfterDate', () => {
@@ -63,4 +65,11 @@ test('isAfterDate', () => {
   expect(d).toBeFalsy()
   d = U.isAfterDate(new Date(2018, 12, 11), new Date(2018, 12, 10))
   expect(d).toBeTruthy()
+})
+
+test('spreadDate', () => {
+  let d = U.spreadDate(7, new Date(2018, 9, 10)).toISOString()
+  expect(d).toBe('2018-10-16T16:00:00.000Z')
+  d = U.spreadDate(1).getTime() - U.spreadDate(-1).getTime()
+  expect(d).toBe(172800000)
 })

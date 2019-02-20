@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1548266564173" clover="3.2.0">
-  <project timestamp="1548266564174" name="All files">
-    <metrics statements="105" coveredstatements="91" conditionals="84" coveredconditionals="73" methods="64" coveredmethods="58" elements="253" coveredelements="222" complexity="0" loc="105" ncloc="105" packages="1" files="7" classes="7">
+<coverage generated="1550670275719" clover="3.2.0">
+  <project timestamp="1550670275720" name="All files">
+    <metrics statements="106" coveredstatements="92" conditionals="85" coveredconditionals="75" methods="65" coveredmethods="59" elements="256" coveredelements="226" complexity="0" loc="106" ncloc="106" packages="1" files="7" classes="7">
       <file name="array.js" path="C:\Users\jofun\Desktop\usuallyjs\src\array.js">
         <metrics statements="6" coveredstatements="6" conditionals="5" coveredconditionals="5" methods="6" coveredmethods="6"/>
         <line num="16" count="2" type="stmt"/>
@@ -12,17 +12,17 @@
         <line num="62" count="3" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="date.js" path="C:\Users\jofun\Desktop\usuallyjs\src\date.js">
-        <metrics statements="22" coveredstatements="22" conditionals="13" coveredconditionals="10" methods="8" coveredmethods="8"/>
+        <metrics statements="23" coveredstatements="23" conditionals="14" coveredconditionals="12" methods="9" coveredmethods="9"/>
         <line num="19" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="5" type="stmt"/>
         <line num="21" count="105" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="5" type="stmt"/>
         <line num="24" count="21" type="cond" truecount="1" falsecount="1"/>
         <line num="47" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="48" count="5" type="stmt"/>
-        <line num="49" count="5" type="stmt"/>
-        <line num="50" count="5" type="stmt"/>
-        <line num="51" count="5" type="stmt"/>
+        <line num="48" count="6" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="50" count="6" type="stmt"/>
+        <line num="51" count="6" type="stmt"/>
         <line num="70" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="71" count="7" type="stmt"/>
         <line num="72" count="7" type="cond" truecount="2" falsecount="0"/>
@@ -30,11 +30,12 @@
         <line num="96" count="3" type="stmt"/>
         <line num="97" count="3" type="stmt"/>
         <line num="98" count="3" type="stmt"/>
-        <line num="119" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="120" count="3" type="stmt"/>
-        <line num="121" count="3" type="stmt"/>
-        <line num="122" count="3" type="stmt"/>
+        <line num="119" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="120" count="4" type="stmt"/>
+        <line num="121" count="4" type="stmt"/>
+        <line num="122" count="4" type="stmt"/>
         <line num="138" count="2" type="stmt"/>
+        <line num="156" count="3" type="cond" truecount="1" falsecount="0"/>
       </file>
       <file name="function.js" path="C:\Users\jofun\Desktop\usuallyjs\src\function.js">
         <metrics statements="23" coveredstatements="9" conditionals="7" coveredconditionals="2" methods="10" coveredmethods="4"/>

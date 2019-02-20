@@ -136,3 +136,21 @@ export const nextMonth = (date = new Date()) => {
  * // => true
  */
 export const isAfterDate = (dateA, dateB) => new Date(dateA) > new Date(dateB)
+
+/**
+ * 返回距离date为n天的日期
+ * @function spreadDate
+ * @param {number} n - 天数。当n为负数，返回过去的日期；当n为正数，返回未来的日期。
+ * @param {date} [date=new Date()] - 可选，日期，默认为当前日期。
+ * @return {date}
+ * @example
+ * U.spreadDate(1)
+ * // => Thu Feb 21 2019 21:01:53 GMT+0800 (当前时间：Wed Feb 20 2019 21:01:53 GMT+0800 )
+ *
+ * U.spreadDate(1)
+ * // => Thu Feb 19 2019 21:01:53 GMT+0800 (当前时间：Wed Feb 20 2019 21:01:53 GMT+0800 )
+ * 
+ * U.spreadDate(7, new Date(2018, 9, 10))
+ * // => Wed Oct 17 2018 00:00:00 GMT+0800 (中国标准时间)
+ */
+export const spreadDate = (n, date = new Date()) => new Date(+date + n * 24 * 60 * 60 * 1000)
