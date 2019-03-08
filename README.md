@@ -11,6 +11,15 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
+<summary>v2.0.0</summary><br />
+1、更新时间：2019-03-08<br />
+
+2、更新内容：<br />
+
+（1）、默认使用ES6模块语法引入的是未经编译的源码<br />
+</details>
+<br />
+<details>
 <summary>v1.1.4</summary><br />
 1、更新时间：2019-02-20<br />
 
@@ -54,14 +63,13 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 npm install --save-dev usuallyjs
 ```
 
-通过 es6 模块引用：
+通过 es6 模块引用（引入的是未经编译的源码）：
 ```javascript
+// 引入完整版
 import U from 'usuallyjs'
-```
 
-通过 node 模块引用：
-```javascript
-const U = require('usuallyjs')
+// 引入所需函数
+import { isString } from 'usuallyjs'
 ```
 
 ### 浏览器安装和使用
