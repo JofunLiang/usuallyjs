@@ -11,6 +11,16 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
+<summary>v2.1.0</summary><br />
+1、更新时间：2019-03-09<br />
+
+2、更新内容：<br />
+
+（1）、修复2.0.0版本引入问题<br />
+（2）、不再支持IE9浏览器<br />
+</details>
+<br />
+<details>
 <summary>v2.0.0</summary><br />
 1、更新时间：2019-03-08<br />
 
@@ -63,13 +73,14 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 npm install --save-dev usuallyjs
 ```
 
-通过 es6 模块引用（引入的是未经编译的源码）：
+通过 es6 模块引用：
 ```javascript
-// 引入完整版
 import U from 'usuallyjs'
+```
 
-// 引入所需函数
-import { isString } from 'usuallyjs'
+通过 node 模块引用：
+```javascript
+const U = require('usuallyjs')
 ```
 
 ### 浏览器安装和使用
@@ -94,7 +105,7 @@ import { isString } from 'usuallyjs'
 
 # 浏览器兼容
 
-支持 IE9+ 和现代浏览器
+支持 IE10+ 和现代浏览器
 
 # 贡献
 
