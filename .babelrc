@@ -4,7 +4,7 @@
       "@babel/preset-env",
       {
         "targets":{
-          "browsers": "last 10 versions, > 1%, ie >= 9, Android >= 4.4, iOS >= 8"
+          "browsers": "last 2 versions, > 1%, ie >= 10, Android >= 4.4, iOS >= 8"
         },
         "modules": false,
       },
