@@ -16,7 +16,7 @@ import { isNull } from './type'
  * U.isInt('3')
  * // => false
  */
-export const isInt = val => Math.floor(val) === val
+export const isInt = val => Number.isInteger(val)
 
 /**
  * 将数字value格式化为千位符数字字符串。如果value是数字，则返回格式化后的字符串，否则报错。

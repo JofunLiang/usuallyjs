@@ -7,6 +7,7 @@
           "browsers": "last 2 versions, > 1%, ie >= 10, Android >= 4.4, iOS >= 8"
         },
         "modules": false,
+        "useBuiltIns": "usage"
       },
     ]
   ],

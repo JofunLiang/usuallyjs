@@ -61,3 +61,24 @@ export const repeatItems = arr => arr.filter(
 export const initArray = (len, value = null) => (
   isFunction(value) ? Array.from({length: len}, (item, i) => value(i, len)) : Array.from({length: len}).fill(value)
 )
+
+/**
+ * 使用函数将数组的值映射到对象，其中键 - 值对由数组原始值作为键和映射值组成。
+ * @function mapObject
+ * @param {array} arr - 对象键名的数组
+ * @param {function} fn - 生成对象值的映射函数
+ * @param {*} currentValue - 数组中正在处理的当前元素
+ * @param {number} index - 可选，数组中正在处理的当前元素的索引
+ * @param {array} array - 可选，当前正在处理的数组
+ * @return {object}
+ * @example
+ * const obj = mapObject([1, 2, 3], i => i * 2)
+ * // => {1: 2, 2: 4, 3: 6}
+ */
+export const mapObject = (arr, fn) => {
+  arr = [arr, arr.map(fn)]
+  return arr[0].reduce((acc, val, i) => {
+    acc[val] = arr[1][i]
+    return acc
+  }, {})
+}
