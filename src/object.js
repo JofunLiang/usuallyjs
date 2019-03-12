@@ -1,5 +1,7 @@
 /** @module Object */
 
+import { isObject } from './type'
+
 /**
  * 对象深复制函数
  * @function deepClone
@@ -14,7 +16,7 @@
 export const deepClone = obj => {
   let clone = Object.assign({}, obj)
   Object.keys(clone).forEach(k => {
-    clone[k] = typeof obj[k] === 'object' ? deepClone(obj[k]) : obj[k]
+    clone[k] = isObject(obj[k]) ? deepClone(obj[k]) : obj[k]
   })
   return Array.isArray(obj) ? (clone.length = obj.length) && Array.from(clone) : clone
 }

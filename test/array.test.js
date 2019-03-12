@@ -26,3 +26,8 @@ test('initArray', () => {
   const arr3 = U.initArray(3, (i) => i * 2)
   expect(arr3).toEqual([ 0, 2, 4 ])
 })
+
+test('mapObject', () => {
+  let obj = U.mapObject([1, 2, 3], val => val * 2)
+  expect(obj).toEqual({1: 2, 2: 4, 3: 6})
+})

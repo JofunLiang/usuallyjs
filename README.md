@@ -11,6 +11,17 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
+<summary>v2.2.0</summary><br />
+1、更新时间：2019-03-12<br />
+
+2、更新内容：<br />
+
+（1）、优化 isInt 函数<br />
+（2）、新增 mapObject 函数<br />
+</details>
+<br />
+
+<details>
 <summary>v2.1.0</summary><br />
 1、更新时间：2019-03-09<br />
 
