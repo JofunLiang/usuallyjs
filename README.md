@@ -3,25 +3,38 @@
 <br />
 <br />
 <br />
-
-![usuallyjs](https://raw.githubusercontent.com/JofunLiang/usuallyjs/dev/logo.png)
+<img src="https://raw.githubusercontent.com/JofunLiang/usuallyjs/dev/logo.png" alt="usuallyjs"/>
 <br />
 <br />
 <br />
-[![npm](https://img.shields.io/npm/v/usuallyjs.svg)](https://www.npmjs.com/package/usuallyjs)
-[![license](https://img.shields.io/github/license/jofunliang/usuallyjs.svg)](https://github.com/JofunLiang/usuallyjs/blob/master/LICENSE)
-[![downloads](https://img.shields.io/npm/dm/usuallyjs.svg)](https://www.npmjs.com/package/usuallyjs)
-[![GitHub file size in bytes](https://img.shields.io/github/size/jofunliang/usuallyjs/dist/usually.min.js.svg?label=minified%20size)](https://github.com/JofunLiang/usuallyjs/blob/master/dist/usually.min.js)
+<a href="https://www.npmjs.com/package/usuallyjs">
+  <img src="https://img.shields.io/npm/v/usuallyjs.svg" alt="npm"/>
+</a>
+<a href="https://github.com/JofunLiang/usuallyjs/blob/master/LICENSE">
+  <img src="https://img.shields.io/github/license/jofunliang/usuallyjs.svg" alt="license"/>
+</a>
+<a href="https://www.npmjs.com/package/usuallyjs">
+  <img src="https://img.shields.io/npm/dm/usuallyjs.svg" alt="downloads"/>
+</a>
+<a href="https://github.com/JofunLiang/usuallyjs/blob/master/dist/usually.min.js">
+  <img src="https://img.shields.io/github/size/jofunliang/usuallyjs/dist/usually.min.js.svg?label=minified%20size" alt="GitHub file size in bytes"/>
+</a>
 <br />
-[![文档](https://img.shields.io/badge/docs-%E6%96%87%E6%A1%A3-brightgreen.svg)](https://jofunliang.github.io/usuallyjs/)
+<a href="https://jofunliang.github.io/usuallyjs/">
+  <img src="https://img.shields.io/badge/docs-%E6%96%87%E6%A1%A3-brightgreen.svg" alt="文档"/>
+</a>
 <br />
 <br />
 一个面向现代 Web 开发的 JavaScript 函数库。
 <br />
 <br />
-[![GitHub forks](https://img.shields.io/github/forks/jofunliang/usuallyjs.svg?style=social)](https://github.com/JofunLiang/usuallyjs)
+<a href="https://github.com/JofunLiang/usuallyjs">
+  <img src="https://img.shields.io/github/forks/jofunliang/usuallyjs.svg?style=social" alt="GitHub forks"/>
+</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[![GitHub stars](https://img.shields.io/github/stars/jofunliang/usuallyjs.svg?style=social)](https://github.com/JofunLiang/usuallyjs)
+<a href="https://jofunliang.github.io/usuallyjs/">
+  <img src="https://img.shields.io/github/stars/jofunliang/usuallyjs.svg?style=social" alt="GitHub stars"/>
+</a>
 </center>
 
 
@@ -143,8 +156,6 @@ const U = require('usuallyjs')
 # 贡献
 
 在提出拉取请求之前，请务必阅读[贡献指南](https://github.com/JofunLiang/usuallyjs/blob/master/CONTRIBUTING.md)。
-
-感谢所有为usuallyjs做出贡献的人！
 
 # LICENSE
 

@@ -70,6 +70,6 @@ test('isAfterDate', () => {
 test('spreadDate', () => {
   let d = U.spreadDate(7, new Date(2018, 9, 10)).toISOString()
   expect(d).toBe('2018-10-16T16:00:00.000Z')
-  d = U.spreadDate(1).getTime() - U.spreadDate(-1).getTime()
-  expect(d).toBe(172800000)
+  d = U.spreadDate(1).getTime() - U.spreadDate(-1).getTime() === 172800000
+  expect(d).toBeTruthy()
 })
