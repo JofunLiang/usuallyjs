@@ -15,9 +15,9 @@
 
 * 该master分支基本上只是最新稳定版本。所有开发都应该在专门的分支中完成 不要向master分支提交PR 。
 
-* 请从dev分支中新建主题分支，并与该分支合并。
+* 请从dev分支中新建分支，并与该分支合并。
 
-* 请在src文件夹中工作。
+* 请在src文件夹中进行开发。
 
 * 如果添加新功能：
   * 添加随附的测试用例。
@@ -30,33 +30,30 @@
 
 ### 开发设置
 
-您需要配置[Node.js](https://nodejs.org/en/)环境和[jsDoc](http://usejsdoc.org/)运行环境。
+您需要配置[Node.js](https://nodejs.org/en/)运行环境。
 
 克隆repo后，运行：
 ```
-# 全局安装jsdoc
-$ npm install -g jsdoc
-
 # 安装项目依赖
 $ npm install
 ```
 
 #### 常用的NPM脚本
 ```
-# 监听并自动构建 dist/usually.js
+# 监听并自动构建
 $ npm run dev
 
-# 运行 jest 测试文件
+# 测试
 $ npm run test
 
-# 构建 dist
+# 构建
 $ npm run build
 
-# 生成文档并在浏览器中打开文档页面
+# 生成文档
 $ npm run jsdoc
 ```
 
-该package.json文件的scripts部分中还有一些其他脚本可用。
+请务必运行 npm run build 命令待构建完成后再提交您的代码，该package.json文件的scripts部分中还有一些其他脚本可用。
 
 ### 项目结构
 
@@ -69,7 +66,7 @@ $ npm run jsdoc
   * array.js: 数组模块。
   * date.js: 日期模块。
   * function.js: 函数模块。
-  * index.js: 主要文件。
+  * index.js: 主文件。
   * number.js: 数字模块。
   * object.js: 对象模块。
   * string.js: 字符串模块。

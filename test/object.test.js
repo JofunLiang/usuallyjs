@@ -8,6 +8,11 @@ test('deepClone', () => {
   b.foo = 'foo'
   expect(a).toEqual({ foo: 'bar', obj: { a: 1, b: [2, 3] } })
   expect(b).toEqual({ foo: 'foo', obj: { a: 1, b: [2, 3] } })
+  let c = [2, 3]
+  let d = U.deepClone(c)
+  d[0] = 1
+  expect(c).toEqual([2, 3])
+  expect(d).toEqual([1, 3])
 })
 
 test('deepFreeze', () => {
@@ -38,6 +43,7 @@ test('omit', () => {
 })
 
 test('isEmpty', () => {
+  expect(U.isEmpty).toBeInstanceOf(Function)
   let b = U.isEmpty(new Map())
   expect(b).toBeTruthy()
   b = U.isEmpty(new Set())
@@ -57,8 +63,6 @@ test('isEmpty', () => {
   b = U.isEmpty(123)
   expect(b).toBeTruthy()
   b = U.isEmpty(true)
-  expect(b).toBeTruthy()
-  b = U.isEmpty(false)
   expect(b).toBeTruthy()
   b = U.isEmpty(new Date())
   expect(b).toBeTruthy()

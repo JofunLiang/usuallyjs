@@ -1,5 +1,5 @@
 
-<center>
+<div align=center>
 <br />
 <br />
 <br />
@@ -35,7 +35,10 @@
 <a href="https://jofunliang.github.io/usuallyjs/">
   <img src="https://img.shields.io/github/stars/jofunliang/usuallyjs.svg?style=social" alt="GitHub stars"/>
 </a>
-</center>
+<br />
+<br />
+<a href="https://jofunliang.github.io/usuallyjs/">中文文档</a>
+</div>
 
 
 # 简介
@@ -44,6 +47,20 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 
 
 # 版本历史/更改日志
+
+<!-- 未发布 -->
+<details>
+<summary>v2.3.0</summary><br />
+1、更新时间：2019-03-16<br />
+
+2、更新内容：<br />
+
+（1）、优化文档<br />
+（2）、新增 keepFixed 函数<br />
+（3）、新增 uniqueItemsBy 函数<br />
+</details>
+<br />
+<!-- 未发布 -->
 
 <details>
 <summary>v2.2.0</summary><br />

@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/28</span>
+        <span class='fraction'>20/28</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.57% </span>
+        <span class="strong">57.14% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/7</span>
+        <span class='fraction'>4/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">70% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/10</span>
+        <span class='fraction'>7/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">39.13% </span>
+        <span class="strong">69.57% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/23</span>
+        <span class='fraction'>16/23</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -148,8 +148,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -189,7 +189,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,12 +210,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -253,7 +253,7 @@ export const once = fn =&gt; {
  * @function bind
  * @param {function} fn - 函数。
  * @param {obj} context - this绑定的对象。
- * @param {*} [boundArgs] - 默认参数。
+ * @param {*} boundArgs - 默认参数。
  * @return {function}
  * @example
  * function greet(greeting, punctuation) {
@@ -279,9 +279,9 @@ export const bind = (fn, context, ...boundArgs) =&gt; (...args) =&gt; fn.apply(c
  * }, 250));
  * // =&gt; 调整浏览器窗口尺寸，在250ms后控制台将打印一次窗口尺寸
  */
-export const debounce = <span class="fstat-no" title="function not covered" >(f</span>n, delay = <span class="branch-0 cbranch-no" title="branch not covered" >0)</span> =&gt; {
+export const debounce = (fn, delay = 0) =&gt; {
   let timeoutId
-<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >fu</span>nction(...args) {</span>
+  return <span class="fstat-no" title="function not covered" >fu</span>nction(...args) {
 <span class="cstat-no" title="statement not covered" >    clearTimeout(timeoutId)</span>
 <span class="cstat-no" title="statement not covered" >    timeoutId = setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >fn.apply(this, args),</span> delay)</span>
   }
@@ -300,14 +300,14 @@ export const debounce = <span class="fstat-no" title="function not covered" >(f<
  * }, 250));
  * // 调整浏览器窗口尺寸，没间隔250ms控制台将打印一次窗口尺寸
  */
-export const throttle = <span class="fstat-no" title="function not covered" >(f</span>n, wait) =&gt; {
+export const throttle = (fn, wait) =&gt; {
   let inThrottle, lastFn, lastTime
-<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
-    const context = <span class="cstat-no" title="statement not covered" >this,</span> args = <span class="cstat-no" title="statement not covered" >arguments</span>
-<span class="cstat-no" title="statement not covered" >    if (!inThrottle) {</span>
-<span class="cstat-no" title="statement not covered" >      fn.apply(context, args)</span>
-<span class="cstat-no" title="statement not covered" >      lastTime = Date.now()</span>
-<span class="cstat-no" title="statement not covered" >      inThrottle = true</span>
+  return function() {
+    const context = this, args = arguments
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!inThrottle) {
+      fn.apply(context, args)
+      lastTime = Date.now()
+      inThrottle = true
     } else {
 <span class="cstat-no" title="statement not covered" >      clearTimeout(lastFn)</span>
 <span class="cstat-no" title="statement not covered" >      lastFn = setTimeout(<span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
@@ -325,7 +325,7 @@ export const throttle = <span class="fstat-no" title="function not covered" >(f<
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 14 2019 22:30:33 GMT+0800 (中国标准时间)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Mar 16 2019 21:54:13 GMT+0800 (中国标准时间)
 </div>
 </div>
 <script src="prettify.js"></script>

@@ -46,3 +46,16 @@ test('random', () => {
   a = U.random(-5, -3)
   expect(a > -5 && a < -3).toBeTruthy()
 })
+
+test('keepFixed', () => {
+  let a = U.keepFixed(-15.12, 4) === '-15.1200'
+  expect(a).toBeTruthy()
+  a = U.keepFixed(-15.12, 4, false) === '-15.12'
+  expect(a).toBeTruthy()
+  a = U.keepFixed(15, 4) === '15.0000'
+  expect(a).toBeTruthy()
+  a = U.keepFixed(15, 4, false) === '15'
+  expect(a).toBeTruthy()
+  a = U.keepFixed(15.1234564, 4, false) === '15.1234'
+  expect(a).toBeTruthy()
+})

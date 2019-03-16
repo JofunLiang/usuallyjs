@@ -24,7 +24,7 @@ export const once = fn => {
  * @function bind
  * @param {function} fn - 函数。
  * @param {obj} context - this绑定的对象。
- * @param {*} [boundArgs] - 默认参数。
+ * @param {*} boundArgs - 默认参数。
  * @return {function}
  * @example
  * function greet(greeting, punctuation) {

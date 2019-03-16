@@ -123,3 +123,27 @@ export const random = (start, end) => (
     ? Math.random() * (Math.abs(start - end)) + Math.min(start, end)
     : Math.random() * (start || end || 1)
 )
+
+/**
+ * 保留小数位数
+ * @function keepFixed
+ * @param {number|string} val - 数值
+ * @param {number} precision - 非负整数，保留小数的位数
+ * @param {boolean} [useFiller=true] - 可选，小数位数不足时是否使用0填充，默认为true
+ * @return {string}
+ * @example
+ * U.keepFixed(-15.12, 4)
+ * // => -15.1200
+ * 
+ * * U.keepFixed(15.1234, 2)
+ * // => -15.12
+ */
+export const keepFixed = (val, precision, useFiller = true) => {
+  let i = `${val}`.indexOf('.')
+  if (i < 0) {
+    return useFiller ? `${val}.${'0'.repeat(precision)}` : `${val}`
+  }
+  i += precision + 1
+  val = `${val}`.substring(0, i)
+  return useFiller ? val.padEnd(i, '0') : val
+}

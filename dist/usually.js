@@ -352,15 +352,156 @@
     isObject: isObject
   });
 
-  // 7.2.1 RequireObjectCoercible(argument)
-  var _defined = function (it) {
-    if (it == undefined) throw TypeError("Can't call method on  " + it);
+  var _core = createCommonjsModule(function (module) {
+    var core = module.exports = {
+      version: '2.6.0'
+    };
+    if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+  });
+  var _core_1 = _core.version;
+
+  var _propertyDesc = function (bitmap, value) {
+    return {
+      enumerable: !(bitmap & 1),
+      configurable: !(bitmap & 2),
+      writable: !(bitmap & 4),
+      value: value
+    };
+  };
+
+  var _hide = _descriptors ? function (object, key, value) {
+    return _objectDp.f(object, key, _propertyDesc(1, value));
+  } : function (object, key, value) {
+    object[key] = value;
+    return object;
+  };
+
+  var hasOwnProperty = {}.hasOwnProperty;
+
+  var _has = function (it, key) {
+    return hasOwnProperty.call(it, key);
+  };
+
+  var id = 0;
+  var px = Math.random();
+
+  var _uid = function (key) {
+    return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+  };
+
+  var _redefine = createCommonjsModule(function (module) {
+    var SRC = _uid('src');
+    var TO_STRING = 'toString';
+    var $toString = Function[TO_STRING];
+    var TPL = ('' + $toString).split(TO_STRING);
+
+    _core.inspectSource = function (it) {
+      return $toString.call(it);
+    };
+
+    (module.exports = function (O, key, val, safe) {
+      var isFunction = typeof val == 'function';
+      if (isFunction) _has(val, 'name') || _hide(val, 'name', key);
+      if (O[key] === val) return;
+      if (isFunction) _has(val, SRC) || _hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
+
+      if (O === _global) {
+        O[key] = val;
+      } else if (!safe) {
+        delete O[key];
+        _hide(O, key, val);
+      } else if (O[key]) {
+        O[key] = val;
+      } else {
+        _hide(O, key, val);
+      } // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+
+    })(Function.prototype, TO_STRING, function toString() {
+      return typeof this == 'function' && this[SRC] || $toString.call(this);
+    });
+  });
+
+  var _aFunction = function (it) {
+    if (typeof it != 'function') throw TypeError(it + ' is not a function!');
     return it;
   };
 
-  var _toObject = function (it) {
-    return Object(_defined(it));
+  var _ctx = function (fn, that, length) {
+    _aFunction(fn);
+    if (that === undefined) return fn;
+
+    switch (length) {
+      case 1:
+        return function (a) {
+          return fn.call(that, a);
+        };
+
+      case 2:
+        return function (a, b) {
+          return fn.call(that, a, b);
+        };
+
+      case 3:
+        return function (a, b, c) {
+          return fn.call(that, a, b, c);
+        };
+    }
+
+    return function ()
+    /* ...args */
+    {
+      return fn.apply(that, arguments);
+    };
   };
+
+  var PROTOTYPE = 'prototype';
+
+  var $export = function (type, name, source) {
+    var IS_FORCED = type & $export.F;
+    var IS_GLOBAL = type & $export.G;
+    var IS_STATIC = type & $export.S;
+    var IS_PROTO = type & $export.P;
+    var IS_BIND = type & $export.B;
+    var target = IS_GLOBAL ? _global : IS_STATIC ? _global[name] || (_global[name] = {}) : (_global[name] || {})[PROTOTYPE];
+    var exports = IS_GLOBAL ? _core : _core[name] || (_core[name] = {});
+    var expProto = exports[PROTOTYPE] || (exports[PROTOTYPE] = {});
+    var key, own, out, exp;
+    if (IS_GLOBAL) source = name;
+
+    for (key in source) {
+      // contains in native
+      own = !IS_FORCED && target && target[key] !== undefined; // export native or passed
+
+      out = (own ? target : source)[key]; // bind timers to global for call from export context
+
+      exp = IS_BIND && own ? _ctx(out, _global) : IS_PROTO && typeof out == 'function' ? _ctx(Function.call, out) : out; // extend global
+
+      if (target) _redefine(target, key, out, type & $export.U); // export
+
+      if (exports[key] != out) _hide(exports, key, exp);
+      if (IS_PROTO && expProto[key] != out) expProto[key] = out;
+    }
+  };
+
+  _global.core = _core; // type bitmap
+
+  $export.F = 1; // forced
+
+  $export.G = 2; // global
+
+  $export.S = 4; // static
+
+  $export.P = 8; // proto
+
+  $export.B = 16; // bind
+
+  $export.W = 32; // wrap
+
+  $export.U = 64; // safe
+
+  $export.R = 128; // real proto method for `library`
+
+  var _export = $export;
 
   // 7.1.4 ToInteger
   var ceil = Math.ceil;
@@ -374,6 +515,59 @@
 
   var _toLength = function (it) {
     return it > 0 ? min(_toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+  };
+
+  // 7.2.1 RequireObjectCoercible(argument)
+  var _defined = function (it) {
+    if (it == undefined) throw TypeError("Can't call method on  " + it);
+    return it;
+  };
+
+  var _stringRepeat = function repeat(count) {
+    var str = String(_defined(this));
+    var res = '';
+    var n = _toInteger(count);
+    if (n < 0 || n == Infinity) throw RangeError("Count can't be negative");
+
+    for (; n > 0; (n >>>= 1) && (str += str)) if (n & 1) res += str;
+
+    return res;
+  };
+
+  var _stringPad = function (that, maxLength, fillString, left) {
+    var S = String(_defined(that));
+    var stringLength = S.length;
+    var fillStr = fillString === undefined ? ' ' : String(fillString);
+    var intMaxLength = _toLength(maxLength);
+    if (intMaxLength <= stringLength || fillStr == '') return S;
+    var fillLen = intMaxLength - stringLength;
+    var stringFiller = _stringRepeat.call(fillStr, Math.ceil(fillLen / fillStr.length));
+    if (stringFiller.length > fillLen) stringFiller = stringFiller.slice(0, fillLen);
+    return left ? stringFiller + S : S + stringFiller;
+  };
+
+  var navigator = _global.navigator;
+
+  var _userAgent = navigator && navigator.userAgent || '';
+
+  // https://github.com/zloirock/core-js/issues/280
+
+
+  _export(_export.P + _export.F * /Version\/10\.\d+(\.\d+)? Safari\//.test(_userAgent), 'String', {
+    padEnd: function padEnd(maxLength
+    /* , fillString = ' ' */
+    ) {
+      return _stringPad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, false);
+    }
+  });
+
+  _export(_export.P, 'String', {
+    // 21.1.3.13 String.prototype.repeat(count)
+    repeat: _stringRepeat
+  });
+
+  var _toObject = function (it) {
+    return Object(_defined(it));
   };
 
   // false -> String#codePointAt
@@ -403,14 +597,6 @@
     return toString.call(it).slice(8, -1);
   };
 
-  var _core = createCommonjsModule(function (module) {
-    var core = module.exports = {
-      version: '2.6.0'
-    };
-    if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
-  });
-  var _core_1 = _core.version;
-
   var _library = false;
 
   var _shared = createCommonjsModule(function (module) {
@@ -424,13 +610,6 @@
       copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
     });
   });
-
-  var id = 0;
-  var px = Math.random();
-
-  var _uid = function (key) {
-    return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-  };
 
   var _wks = createCommonjsModule(function (module) {
     var store = _shared('wks');
@@ -552,142 +731,6 @@
   }
 
   var _regexpExec = patchedExec;
-
-  var _propertyDesc = function (bitmap, value) {
-    return {
-      enumerable: !(bitmap & 1),
-      configurable: !(bitmap & 2),
-      writable: !(bitmap & 4),
-      value: value
-    };
-  };
-
-  var _hide = _descriptors ? function (object, key, value) {
-    return _objectDp.f(object, key, _propertyDesc(1, value));
-  } : function (object, key, value) {
-    object[key] = value;
-    return object;
-  };
-
-  var hasOwnProperty = {}.hasOwnProperty;
-
-  var _has = function (it, key) {
-    return hasOwnProperty.call(it, key);
-  };
-
-  var _redefine = createCommonjsModule(function (module) {
-    var SRC = _uid('src');
-    var TO_STRING = 'toString';
-    var $toString = Function[TO_STRING];
-    var TPL = ('' + $toString).split(TO_STRING);
-
-    _core.inspectSource = function (it) {
-      return $toString.call(it);
-    };
-
-    (module.exports = function (O, key, val, safe) {
-      var isFunction = typeof val == 'function';
-      if (isFunction) _has(val, 'name') || _hide(val, 'name', key);
-      if (O[key] === val) return;
-      if (isFunction) _has(val, SRC) || _hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
-
-      if (O === _global) {
-        O[key] = val;
-      } else if (!safe) {
-        delete O[key];
-        _hide(O, key, val);
-      } else if (O[key]) {
-        O[key] = val;
-      } else {
-        _hide(O, key, val);
-      } // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
-
-    })(Function.prototype, TO_STRING, function toString() {
-      return typeof this == 'function' && this[SRC] || $toString.call(this);
-    });
-  });
-
-  var _aFunction = function (it) {
-    if (typeof it != 'function') throw TypeError(it + ' is not a function!');
-    return it;
-  };
-
-  var _ctx = function (fn, that, length) {
-    _aFunction(fn);
-    if (that === undefined) return fn;
-
-    switch (length) {
-      case 1:
-        return function (a) {
-          return fn.call(that, a);
-        };
-
-      case 2:
-        return function (a, b) {
-          return fn.call(that, a, b);
-        };
-
-      case 3:
-        return function (a, b, c) {
-          return fn.call(that, a, b, c);
-        };
-    }
-
-    return function ()
-    /* ...args */
-    {
-      return fn.apply(that, arguments);
-    };
-  };
-
-  var PROTOTYPE = 'prototype';
-
-  var $export = function (type, name, source) {
-    var IS_FORCED = type & $export.F;
-    var IS_GLOBAL = type & $export.G;
-    var IS_STATIC = type & $export.S;
-    var IS_PROTO = type & $export.P;
-    var IS_BIND = type & $export.B;
-    var target = IS_GLOBAL ? _global : IS_STATIC ? _global[name] || (_global[name] = {}) : (_global[name] || {})[PROTOTYPE];
-    var exports = IS_GLOBAL ? _core : _core[name] || (_core[name] = {});
-    var expProto = exports[PROTOTYPE] || (exports[PROTOTYPE] = {});
-    var key, own, out, exp;
-    if (IS_GLOBAL) source = name;
-
-    for (key in source) {
-      // contains in native
-      own = !IS_FORCED && target && target[key] !== undefined; // export native or passed
-
-      out = (own ? target : source)[key]; // bind timers to global for call from export context
-
-      exp = IS_BIND && own ? _ctx(out, _global) : IS_PROTO && typeof out == 'function' ? _ctx(Function.call, out) : out; // extend global
-
-      if (target) _redefine(target, key, out, type & $export.U); // export
-
-      if (exports[key] != out) _hide(exports, key, exp);
-      if (IS_PROTO && expProto[key] != out) expProto[key] = out;
-    }
-  };
-
-  _global.core = _core; // type bitmap
-
-  $export.F = 1; // forced
-
-  $export.G = 2; // global
-
-  $export.S = 4; // static
-
-  $export.P = 8; // proto
-
-  $export.B = 16; // bind
-
-  $export.W = 32; // wrap
-
-  $export.U = 64; // safe
-
-  $export.R = 128; // real proto method for `library`
-
-  var _export = $export;
 
   _export({
     target: 'RegExp',
@@ -1513,13 +1556,41 @@
   var random = function random(start, end) {
     return start && end ? Math.random() * Math.abs(start - end) + Math.min(start, end) : Math.random() * (start || end || 1);
   };
+  /**
+   * 保留小数位数
+   * @function keepFixed
+   * @param {number|string} val - 数值
+   * @param {number} precision - 非负整数，保留小数的位数
+   * @param {boolean} [useFiller=true] - 可选，小数位数不足时是否使用0填充，默认为true
+   * @return {string}
+   * @example
+   * U.keepFixed(-15.12, 4)
+   * // => -15.1200
+   * 
+   * * U.keepFixed(15.1234, 2)
+   * // => -15.12
+   */
+
+  var keepFixed = function keepFixed(val, precision) {
+    var useFiller = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+    var i = "".concat(val).indexOf('.');
+
+    if (i < 0) {
+      return useFiller ? "".concat(val, ".").concat('0'.repeat(precision)) : "".concat(val);
+    }
+
+    i += precision + 1;
+    val = "".concat(val).substring(0, i);
+    return useFiller ? val.padEnd(i, '0') : val;
+  };
 
   var number = /*#__PURE__*/Object.freeze({
     isInt: isInt,
     toThousands: toThousands,
     inRange: inRange,
     round: round,
-    random: random
+    random: random,
+    keepFixed: keepFixed
   });
 
   /** @module Function */
@@ -1552,7 +1623,7 @@
    * @function bind
    * @param {function} fn - 函数。
    * @param {obj} context - this绑定的对象。
-   * @param {*} [boundArgs] - 默认参数。
+   * @param {*} boundArgs - 默认参数。
    * @return {function}
    * @example
    * function greet(greeting, punctuation) {
@@ -2644,6 +2715,44 @@
     return toConsumableArray(new Set(arr));
   };
   /**
+   * 根据提供的比较器函数返回数组的所有唯一值。
+   * @function uniqueItemsBy
+   * @param {array} arr - 数组
+   * @param {function} fn - 比较器函数
+   * @param {*} fn.a - 比较元素
+   * @param {*} fn.b - 比较元素
+   * @param {boolean} [isRight=false] - 可选，默认false，是否从数组最后一个元素开始比较
+   * @return {array}
+   * @example
+   * U.uniqueItemsBy([
+   *  { id: 0, value: 'a' },
+   *  { id: 1, value: 'b' },
+   *  { id: 2, value: 'c' },
+   *  { id: 0, value: 'd' }
+   * ],
+   * (a, b) => a.id == b.id)
+   * // => [{ id: 0, value: 'a' }, { id: 1, value: 'b' }, { id: 2, value: 'c' }]
+   * 
+   * U.uniqueItemsBy([
+   *  { id: 0, value: 'a' },
+   *  { id: 1, value: 'b' },
+   *  { id: 2, value: 'c' },
+   *  { id: 0, value: 'd' }
+   * ],
+   * (a, b) => a.id == b.id,
+   * true)
+   * // => [{ id: 0, value: 'd' }, { id: 2, value: 'c' }, { id: 1, value: 'b' }]
+   */
+
+  var uniqueItemsBy = function uniqueItemsBy(arr, fn, isRight) {
+    return arr[isRight ? 'reduceRight' : 'reduce'](function (acc, x) {
+      if (!acc.some(function (y) {
+        return fn(x, y);
+      })) acc.push(x);
+      return acc;
+    }, []);
+  };
+  /**
    * 检索数组重复元素，返回新数组。
    * @function repeatItems
    * @param {array} arr - 数组
@@ -2659,10 +2768,12 @@
     });
   };
   /**
-   * 初始化一个给定长度以及值的数组。当value是函数时提供迭代的i和数组长度len两个参数。
+   * 初始化一个给定长度以及值的数组。当映射是一个函数时提供迭代的i和数组长度len两个参数。
    * @function initArray
    * @param {number} len - 数组长度
-   * @param {*} [value=null] - 可选，初始化的值，默认为null，当value是函数时提供迭代的i和数组长度len两个参数。
+   * @param {*|function} [val|fn=null] - 可选，数组元素的映射值，默认为null；当映射是一个函数时，该函数参数如下表：
+   * @param {number} fn.index - 可选，数组中正在处理的当前元素的索引
+   * @param {number} fn.length - 可选，数组的长度
    * @return {array}
    * @example
    * console.log(U.initArray(3))
@@ -2676,23 +2787,23 @@
    */
 
   var initArray = function initArray(len) {
-    var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    return isFunction(value) ? Array.from({
+    var val = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    return isFunction(val) ? Array.from({
       length: len
     }, function (item, i) {
-      return value(i, len);
+      return val(i, len);
     }) : Array.from({
       length: len
-    }).fill(value);
+    }).fill(val);
   };
   /**
    * 使用函数将数组的值映射到对象，其中键 - 值对由数组原始值作为键和映射值组成。
    * @function mapObject
    * @param {array} arr - 对象键名的数组
-   * @param {function} fn - 生成对象值的映射函数
-   * @param {*} currentValue - 数组中正在处理的当前元素
-   * @param {number} index - 可选，数组中正在处理的当前元素的索引
-   * @param {array} array - 可选，当前正在处理的数组
+   * @param {function(currentValue, index, array)} fn - 生成对象值的映射函数
+   * @param {*} fn.currentValue - 数组中正在处理的当前元素
+   * @param {number} fn.index - 可选，数组中正在处理的当前元素的索引
+   * @param {array} fn.array - 可选，当前正在处理的数组
    * @return {object}
    * @example
    * const obj = mapObject([1, 2, 3], i => i * 2)
@@ -2710,6 +2821,7 @@
   var array = /*#__PURE__*/Object.freeze({
     lastItem: lastItem,
     uniqueItems: uniqueItems,
+    uniqueItemsBy: uniqueItemsBy,
     repeatItems: repeatItems,
     initArray: initArray,
     mapObject: mapObject

@@ -34,11 +34,13 @@ test('removeHTML', () => {
 })
 
 test('escapeHTML', () => {
+  expect(U.escapeHTML).toBeInstanceOf(Function)
   let s = U.escapeHTML('<a href="#">you & me</a>')
   expect(s).toBe('&lt;a href=&quot;#&quot;&gt;you &amp; me&lt;/a&gt;')
 })
 
 test('unescapeHTML', () => {
+  expect(U.unescapeHTML).toBeInstanceOf(Function)
   let s = U.unescapeHTML('&lt;a href=&quot;#&quot;&gt;you &amp; me&lt;/a&gt;')
   expect(s).toBe('<a href="#">you & me</a>')
 })

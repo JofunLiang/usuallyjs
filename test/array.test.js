@@ -13,6 +13,27 @@ test('uniqueItems', () => {
   expect(arr).toEqual([1, 2, 3, 4, 5])
 })
 
+test('uniqueItemsBy', () => {
+  const arr = [
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' },
+    { id: 0, value: 'd' }
+  ]
+  expect(U.uniqueItemsBy(arr, (a, b) => a.id == b.id))
+  .toEqual([
+    { id: 0, value: 'a' },
+    { id: 1, value: 'b' },
+    { id: 2, value: 'c' }
+  ])
+  expect(U.uniqueItemsBy(arr, (a, b) => a.id == b.id, true))
+  .toEqual([
+    { id: 0, value: 'd' },
+    { id: 2, value: 'c' },
+    { id: 1, value: 'b' }
+  ])
+})
+
 test('repeatItems', () => {
   const arr = U.repeatItems([1, 1, 2, 3, 3, 4, 5])
   expect(arr).toEqual([1, 3])
