@@ -1,14 +1,66 @@
-# usuallyjs
 
-usuallyjs 是一个面向现代 Web 开发的 JavaScript 实用函数库。
+<div align=center>
+<br />
+<br />
+<br />
+<img src="https://raw.githubusercontent.com/JofunLiang/usuallyjs/dev/logo.png" alt="usuallyjs"/>
+<br />
+<br />
+<br />
+<a href="https://www.npmjs.com/package/usuallyjs">
+  <img src="https://img.shields.io/npm/v/usuallyjs.svg" alt="npm"/>
+</a>
+<a href="https://github.com/JofunLiang/usuallyjs/blob/master/LICENSE">
+  <img src="https://img.shields.io/github/license/jofunliang/usuallyjs.svg" alt="license"/>
+</a>
+<a href="https://www.npmjs.com/package/usuallyjs">
+  <img src="https://img.shields.io/npm/dm/usuallyjs.svg" alt="downloads"/>
+</a>
+<a href="https://github.com/JofunLiang/usuallyjs/blob/master/dist/usually.min.js">
+  <img src="https://img.shields.io/github/size/jofunliang/usuallyjs/dist/usually.min.js.svg?label=minified%20size" alt="GitHub file size in bytes"/>
+</a>
+<br />
+<a href="https://jofunliang.github.io/usuallyjs/">
+  <img src="https://img.shields.io/badge/docs-%E6%96%87%E6%A1%A3-brightgreen.svg" alt="文档"/>
+</a>
+<br />
+<br />
+一个面向现代 Web 开发的 JavaScript 函数库。
+<br />
+<br />
+<a href="https://github.com/JofunLiang/usuallyjs">
+  <img src="https://img.shields.io/github/forks/jofunliang/usuallyjs.svg?style=social" alt="GitHub forks"/>
+</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://jofunliang.github.io/usuallyjs/">
+  <img src="https://img.shields.io/github/stars/jofunliang/usuallyjs.svg?style=social" alt="GitHub stars"/>
+</a>
+<br />
+<br />
+<a href="https://jofunliang.github.io/usuallyjs/">中文文档</a>
+</div>
+
+
+# 简介
 
 usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作部分的内容，精选了一系列 Web 开发过程中最常用的、最实用的 JavaScript 函数。与 Vue、React、Angular等现代 Web 框架搭配使用，更好的服务于开发现代 Web 应用。
 
-[GitHub](https://github.com/JofunLiang/usuallyjs)
-
-[文档](https://jofunliang.github.io/usuallyjs/)
 
 # 版本历史/更改日志
+
+<!-- 未发布 -->
+<details>
+<summary>v2.3.0</summary><br />
+1、更新时间：2019-03-16<br />
+
+2、更新内容：<br />
+
+（1）、优化文档<br />
+（2）、新增 keepFixed 函数<br />
+（3）、新增 uniqueItemsBy 函数<br />
+</details>
+<br />
+<!-- 未发布 -->
 
 <details>
 <summary>v2.2.0</summary><br />
@@ -121,8 +173,6 @@ const U = require('usuallyjs')
 # 贡献
 
 在提出拉取请求之前，请务必阅读[贡献指南](https://github.com/JofunLiang/usuallyjs/blob/master/CONTRIBUTING.md)。
-
-感谢所有为usuallyjs做出贡献的人！
 
 # LICENSE
 
