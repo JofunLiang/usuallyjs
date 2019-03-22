@@ -42,7 +42,7 @@
 
   var objectSpread = _objectSpread;
 
-  var version = "2.3.0";
+  var version = "2.4.1";
 
   function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -1713,12 +1713,42 @@
       }
     };
   };
+  /**
+   * 管道函数，占位符“$”为上一个函数的运算结果，如：pipe(x, `a |> b($, y)`) 等价于 b(a(x), y)。
+   * @function pipe
+   * @param {*} param - 函数参数。
+   * @param {string} line - 管道线。
+   * @return {*}
+   * @example
+   * const x = 1;
+   * const y = 3;
+   * 
+   * const a = n => n + 1;
+   * const b = (x, y)=> x * y;
+   * const c = n => n * n;
+   * 
+   * pipe(x, `a |> b($, y)`)
+   * // => 6
+   * 
+   * pipe(x, `a |> c`)
+   * // => 4
+   */
+
+  var pipe = function pipe(param, line) {
+    return line.split('|>').reduce(function (acc, fn) {
+      fn = fn.indexOf('(') > -1 ? fn.replace(/[\(|,]\s*\$\s*[\)|,]/g, function (w) {
+        return w.replace('$', 'acc');
+      }) : "".concat(fn, "(acc)");
+      return acc = new Function('acc', 'return ' + fn)(acc);
+    }, param);
+  };
 
   var fn = /*#__PURE__*/Object.freeze({
     once: once,
     bind: bind,
     debounce: debounce,
-    throttle: throttle
+    throttle: throttle,
+    pipe: pipe
   });
 
   /** @module Date */
@@ -3050,6 +3080,29 @@
   var isEmpty = function isEmpty(val) {
     return !(Object.keys(val) || val).length;
   };
+  /**
+   * 覆盖对象的值。
+   * @function overValues
+   * @param {obj} obj - 被覆盖的对象
+   * @param {...others} others - 提供覆盖值的对象
+   * @return {object}
+   * @example
+   * U.overValues({a: 1, b: 2}, {a: 5})
+   * // => {a: 5, b: 2}
+   */
+
+  var overValues = function overValues(obj) {
+    for (var _len2 = arguments.length, others = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      others[_key2 - 1] = arguments[_key2];
+    }
+
+    return others.concat().reduce(function (acc, other) {
+      return Object.keys(obj).reduce(function (a, k) {
+        a[k] = isObject(other[k]) ? overValues(obj[k], other[k]) : other[k] || obj[k];
+        return a;
+      }, obj);
+    }, {});
+  };
 
   var object = /*#__PURE__*/Object.freeze({
     deepClone: deepClone,
@@ -3057,8 +3110,51 @@
     defaults: defaults,
     renameKeys: renameKeys,
     omit: omit,
-    isEmpty: isEmpty
+    isEmpty: isEmpty,
+    overValues: overValues
   });
+
+  var STARTS_WITH = 'startsWith';
+  var $startsWith = ''[STARTS_WITH];
+  _export(_export.P + _export.F * _failsIsRegexp(STARTS_WITH), 'String', {
+    startsWith: function startsWith(searchString
+    /* , position = 0 */
+    ) {
+      var that = _stringContext(this, searchString, STARTS_WITH);
+      var index = _toLength(Math.min(arguments.length > 1 ? arguments[1] : undefined, that.length));
+      var search = String(searchString);
+      return $startsWith ? $startsWith.call(that, search, index) : that.slice(index, index + search.length) === search;
+    }
+  });
+
+  if (_descriptors && /./g.flags != 'g') _objectDp.f(RegExp.prototype, 'flags', {
+    configurable: true,
+    get: _flags
+  });
+
+  var TO_STRING = 'toString';
+  var $toString = /./[TO_STRING];
+
+  var define = function (fn) {
+    _redefine(RegExp.prototype, TO_STRING, fn, true);
+  }; // 21.2.5.14 RegExp.prototype.toString()
+
+
+  if (_fails(function () {
+    return $toString.call({
+      source: 'a',
+      flags: 'b'
+    }) != '/a/b';
+  })) {
+    define(function toString() {
+      var R = _anObject(this);
+      return '/'.concat(R.source, '/', 'flags' in R ? R.flags : !_descriptors && R instanceof RegExp ? _flags.call(R) : undefined);
+    }); // FF44- RegExp#toString has a wrong name
+  } else if ($toString.name != TO_STRING) {
+    define(function toString() {
+      return $toString.call(this);
+    });
+  }
 
   _fixReWks('match', 1, function (defined, MATCH, $match, maybeCallNative) {
     return [// `String.prototype.match` method
@@ -3137,7 +3233,8 @@
    */
 
   var stringifyURL = function stringifyURL(url, params) {
-    return url + '?' + Object.keys(params).map(function (key) {
+    url += /\?/.test(url) ? '&' : '?';
+    return url += Object.keys(params).map(function (key) {
       return "".concat(key, "=").concat(params[key]);
     }).join('&');
   };
@@ -3240,6 +3337,54 @@
       return i >= start && i < "".concat(str).length - end ? mask : v;
     }).join('');
   };
+  /**
+   * 随机生成16进制色值
+   * @function randomHex
+   * @return {string}
+   * @example
+   * U.randomHex()
+   * // => "#f13ba7"
+   */
+
+  var randomHex = function randomHex() {
+    return '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
+  };
+  /**
+   * 将3位16进制色值转为6位
+   * @function extendHex
+   * @param {string} shortHex - 字符串
+   * @return {string}
+   * @example
+   * U.extendHex('#03f')
+   * // => '#0033ff'
+   * 
+   * U.extendHex('05a')
+   * // => '#0055aa'
+   */
+
+  var extendHex = function extendHex(shortHex) {
+    return '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0).split('').map(function (x) {
+      return x + x;
+    }).join('');
+  };
+  /**
+   * 解析cookie字符串
+   * @function parseCookie
+   * @param {string} str - 字符串
+   * @return {object}
+   * @example
+   * U.parseCookie('taken=bar; equation=E%3Dmc%5E2')
+   * // => {taken: 'bar', equation: 'E=mc^2'}
+   */
+
+  var parseCookie = function parseCookie(str) {
+    return str.split(';').map(function (v) {
+      return v.split('=');
+    }).reduce(function (acc, v) {
+      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+      return acc;
+    }, {});
+  };
 
   var string = /*#__PURE__*/Object.freeze({
     byteSize: byteSize,
@@ -3249,7 +3394,10 @@
     removeHTML: removeHTML,
     escapeHTML: escapeHTML,
     unescapeHTML: unescapeHTML,
-    mask: mask
+    mask: mask,
+    randomHex: randomHex,
+    extendHex: extendHex,
+    parseCookie: parseCookie
   });
 
   var usually = objectSpread({

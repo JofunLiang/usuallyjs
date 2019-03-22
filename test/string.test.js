@@ -19,6 +19,8 @@ test('reverseString', () => {
 test('stringifyURL', () => {
   let s = U.stringifyURL('https://www.google.com/', {name: 'john', age: 30})
   expect(s).toBe('https://www.google.com/?name=john&age=30')
+  s = U.stringifyURL('https://www.google.com/?name=john', {age: 30})
+  expect(s).toBe('https://www.google.com/?name=john&age=30')
 })
 
 test('parseURL', () => {
@@ -60,4 +62,20 @@ test('mask', () => {
   expect(s).toBe('123456789')
   s = U.mask('123456789', 0, 0, '&')
   expect(s).toBe('&&&&&&&&&')
+})
+
+test('randomHex', () => {
+  expect(U.randomHex).toBeInstanceOf(Function)
+})
+
+test('extendHex', () => {
+  let hex = U.extendHex('#03f')
+  expect(hex).toBe('#0033ff')
+  hex = U.extendHex('50a')
+  expect(hex).toBe('#5500aa')
+})
+
+test('parseCookie', () => {
+  const cookie = U.parseCookie('taken=bar; equation=E%3Dmc%5E2')
+  expect(cookie).toEqual({taken: 'bar', equation: 'E=mc^2'})
 })

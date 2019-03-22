@@ -108,3 +108,23 @@ export const omit = (obj, arr) => (
  * U.isEmpty(false) // => true
  */
 export const isEmpty = val => !(Object.keys(val) || val).length
+
+/**
+ * 覆盖对象的值。
+ * @function overValues
+ * @param {obj} obj - 被覆盖的对象
+ * @param {...others} others - 提供覆盖值的对象
+ * @return {object}
+ * @example
+ * U.overValues({a: 1, b: 2}, {a: 5})
+ * // => {a: 5, b: 2}
+ */
+export const overValues = (obj, ...others) => {
+  return [...others].reduce(
+    (acc, other) => Object.keys(obj).reduce(
+      (a, k) => {
+        a[k] = isObject(other[k]) ? overValues(obj[k], other[k]) : (other[k] || obj[k])
+        return a
+      }, obj),
+    {})
+}

@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">96.97% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>22/22</span>
+        <span class='fraction'>32/33</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">84.62% </span>
+        <span class="strong">88.24% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>11/13</span>
+        <span class='fraction'>15/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">94.74% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>18/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>24/24</span>
       </div>
     </div>
   </div>
@@ -174,7 +174,55 @@
 129
 130
 131
-132</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,6 +264,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -305,6 +354,53 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">63x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @module String */
 &nbsp;
 /**
@@ -345,9 +441,10 @@ export const reverseString = str =&gt; [...str].reverse().join('')
  * U.stringifyURL('https://www.google.com/', {name: 'john', age: 30})
  * // =&gt; 'https://www.google.com/?name=john&amp;age=30'
  */
-export const stringifyURL = (url, params) =&gt; (
-  url + '?' + Object.keys(params).map(key =&gt; `${key}=${params[key]}`).join('&amp;')
-)
+export const stringifyURL = (url, params) =&gt; {
+  url += (/\?/).test(url) ? '&amp;' : '?'
+  return url += Object.keys(params).map(key =&gt; `${key}=${params[key]}`).join('&amp;')
+}
 &nbsp;
 /**
  * 解析URL参数
@@ -436,13 +533,60 @@ export const unescapeHTML = str =&gt; str.replace(
 export const mask = (str, start = 0, end = 0, mask = '*') =&gt; [...`${str}`].map(
   (v, i) =&gt; i &gt;= start &amp;&amp; i &lt; `${str}`.length - end ? mask : v
 ).join('')
+&nbsp;
+/**
+ * 随机生成16进制色值
+ * @function randomHex
+ * @return {string}
+ * @example
+ * U.randomHex()
+ * // =&gt; "#f13ba7"
+ */
+export const randomHex = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >'#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6)</span>
+&nbsp;
+/**
+ * 将3位16进制色值转为6位
+ * @function extendHex
+ * @param {string} shortHex - 字符串
+ * @return {string}
+ * @example
+ * U.extendHex('#03f')
+ * // =&gt; '#0033ff'
+ * 
+ * U.extendHex('05a')
+ * // =&gt; '#0055aa'
+ */
+export const extendHex = shortHex =&gt; {
+  return '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0)
+    .split('')
+    .map(x =&gt; x + x)
+    .join('')
+}
+&nbsp;
+/**
+ * 解析cookie字符串
+ * @function parseCookie
+ * @param {string} str - 字符串
+ * @return {object}
+ * @example
+ * U.parseCookie('taken=bar; equation=E%3Dmc%5E2')
+ * // =&gt; {taken: 'bar', equation: 'E=mc^2'}
+ */
+export const parseCookie = str =&gt; {
+  return str.split(';')
+    .map(v =&gt; v.split('='))
+    .reduce((acc, v) =&gt; {
+      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim())
+      return acc
+    }, {})
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Mar 16 2019 21:55:50 GMT+0800 (中国标准时间)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 22 2019 22:03:28 GMT+0800 (中国标准时间)
 </div>
 </div>
 <script src="prettify.js"></script>

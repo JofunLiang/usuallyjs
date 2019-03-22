@@ -32,3 +32,7 @@ test('throttle', () => {
   expect(throttled).toBeInstanceOf(Function);
   expect(throttled(10)).toBe(undefined);
 })
+
+test('pipe', () => {
+  expect(U.pipe).toBeInstanceOf(Function)
+})

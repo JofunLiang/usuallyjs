@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.43% </span>
+        <span class="strong">63.64% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>20/28</span>
+        <span class='fraction'>21/33</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">57.14% </span>
+        <span class="strong">44.44% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/7</span>
+        <span class='fraction'>4/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">70% </span>
+        <span class="strong">53.85% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/10</span>
+        <span class='fraction'>7/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">69.57% </span>
+        <span class="strong">60.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/23</span>
+        <span class='fraction'>17/28</span>
       </div>
     </div>
   </div>
@@ -135,7 +135,37 @@
 90
 91
 92
-93</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -225,6 +255,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @module Function */
@@ -319,13 +379,43 @@ export const throttle = (fn, wait) =&gt; {
     }
   }
 }
+&nbsp;
+/**
+ * 管道函数，占位符“$”为上一个函数的运算结果，如：pipe(x, `a |&gt; b($, y)`) 等价于 b(a(x), y)。
+ * @function pipe
+ * @param {*} param - 函数参数。
+ * @param {string} line - 管道线。
+ * @return {*}
+ * @example
+ * const x = 1;
+ * const y = 3;
+ * 
+ * const a = n =&gt; n + 1;
+ * const b = (x, y)=&gt; x * y;
+ * const c = n =&gt; n * n;
+ * 
+ * pipe(x, `a |&gt; b($, y)`)
+ * // =&gt; 6
+ * 
+ * pipe(x, `a |&gt; c`)
+ * // =&gt; 4
+ */
+export const pipe = <span class="fstat-no" title="function not covered" >(p</span>aram, line) =&gt; {
+<span class="cstat-no" title="statement not covered" >  return line.split('|&gt;')</span>
+    .reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, fn) =&gt; {
+<span class="cstat-no" title="statement not covered" >      fn = fn.indexOf('(') &gt; -1</span>
+        ? fn.replace(/[\(|,]\s*\$\s*[\)|,]/g, <span class="fstat-no" title="function not covered" >w </span>=&gt; <span class="cstat-no" title="statement not covered" >w.replace('$', 'acc'))</span>
+        : `${fn}(acc)`
+<span class="cstat-no" title="statement not covered" >      return acc = new Function('acc', 'return ' + fn)(acc)</span>
+    }, param)
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Mar 16 2019 21:55:50 GMT+0800 (中国标准时间)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 22 2019 22:03:28 GMT+0800 (中国标准时间)
 </div>
 </div>
 <script src="prettify.js"></script>

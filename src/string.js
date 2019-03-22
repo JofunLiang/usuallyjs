@@ -38,9 +38,10 @@ export const reverseString = str => [...str].reverse().join('')
  * U.stringifyURL('https://www.google.com/', {name: 'john', age: 30})
  * // => 'https://www.google.com/?name=john&age=30'
  */
-export const stringifyURL = (url, params) => (
-  url + '?' + Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
-)
+export const stringifyURL = (url, params) => {
+  url += (/\?/).test(url) ? '&' : '?'
+  return url += Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
+}
 
 /**
  * 解析URL参数
@@ -129,3 +130,50 @@ export const unescapeHTML = str => str.replace(
 export const mask = (str, start = 0, end = 0, mask = '*') => [...`${str}`].map(
   (v, i) => i >= start && i < `${str}`.length - end ? mask : v
 ).join('')
+
+/**
+ * 随机生成16进制色值
+ * @function randomHex
+ * @return {string}
+ * @example
+ * U.randomHex()
+ * // => "#f13ba7"
+ */
+export const randomHex = () => '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6)
+
+/**
+ * 将3位16进制色值转为6位
+ * @function extendHex
+ * @param {string} shortHex - 字符串
+ * @return {string}
+ * @example
+ * U.extendHex('#03f')
+ * // => '#0033ff'
+ * 
+ * U.extendHex('05a')
+ * // => '#0055aa'
+ */
+export const extendHex = shortHex => {
+  return '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0)
+    .split('')
+    .map(x => x + x)
+    .join('')
+}
+
+/**
+ * 解析cookie字符串
+ * @function parseCookie
+ * @param {string} str - 字符串
+ * @return {object}
+ * @example
+ * U.parseCookie('taken=bar; equation=E%3Dmc%5E2')
+ * // => {taken: 'bar', equation: 'E=mc^2'}
+ */
+export const parseCookie = str => {
+  return str.split(';')
+    .map(v => v.split('='))
+    .reduce((acc, v) => {
+      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim())
+      return acc
+    }, {})
+}
