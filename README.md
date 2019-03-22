@@ -48,7 +48,21 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 
 # 版本历史/更改日志
 
-<!-- 未发布 -->
+<details>
+<summary>v2.4.1</summary><br />
+1、更新时间：2019-03-22<br />
+
+2、更新内容：<br />
+
+ （1）、bug 修复，修复 stringifyURL 函数重复追加“?”的bug<br />
+ （2）、新增管道操作函数 —— pipe 函数，简化多函数运算流<br />
+ （3）、新增对象值覆盖函数 —— overValues 函数<br />
+ （4）、新增颜色值处理函数 —— extendHex 函数，将3位的16进制色值转换为6位<br />
+ （5）、新增 randomHex 函数 —— 生成16进制随机颜色色值<br />
+ （6）、新增 parseCookie 函数，将 cookie 字符串解析为对象形式<br />
+</details>
+<br />
+
 <details>
 <summary>v2.3.0</summary><br />
 1、更新时间：2019-03-16<br />
@@ -60,7 +74,6 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 （3）、新增 uniqueItemsBy 函数<br />
 </details>
 <br />
-<!-- 未发布 -->
 
 <details>
 <summary>v2.2.0</summary><br />

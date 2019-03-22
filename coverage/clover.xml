@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552744551022" clover="3.2.0">
-  <project timestamp="1552744551022" name="All files">
-    <metrics statements="121" coveredstatements="114" conditionals="96" coveredconditionals="88" methods="71" coveredmethods="68" elements="288" coveredelements="270" complexity="0" loc="121" ncloc="121" packages="1" files="7" classes="7">
+<coverage generated="1553263408745" clover="3.2.0">
+  <project timestamp="1553263408746" name="All files">
+    <metrics statements="141" coveredstatements="130" conditionals="106" coveredconditionals="95" methods="83" coveredmethods="76" elements="330" coveredelements="301" complexity="0" loc="141" ncloc="141" packages="1" files="7" classes="7">
       <file name="array.js" path="C:\Users\jofun\Desktop\usuallyjs\src\array.js">
         <metrics statements="14" coveredstatements="14" conditionals="9" coveredconditionals="9" methods="11" coveredmethods="11"/>
         <line num="16" count="2" type="stmt"/>
@@ -46,7 +46,7 @@
         <line num="156" count="3" type="cond" truecount="1" falsecount="0"/>
       </file>
       <file name="function.js" path="C:\Users\jofun\Desktop\usuallyjs\src\function.js">
-        <metrics statements="23" coveredstatements="16" conditionals="7" coveredconditionals="4" methods="10" coveredmethods="7"/>
+        <metrics statements="28" coveredstatements="17" conditionals="9" coveredconditionals="4" methods="13" coveredmethods="7"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
@@ -70,6 +70,11 @@
         <line num="85" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="86" count="0" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="117" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
       </file>
       <file name="number.js" path="C:\Users\jofun\Desktop\usuallyjs\src\number.js">
         <metrics statements="17" coveredstatements="17" conditionals="33" coveredconditionals="33" methods="7" coveredmethods="7"/>
@@ -92,7 +97,7 @@
         <line num="148" count="3" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="object.js" path="C:\Users\jofun\Desktop\usuallyjs\src\object.js">
-        <metrics statements="19" coveredstatements="19" conditionals="14" coveredconditionals="13" methods="11" coveredmethods="11"/>
+        <metrics statements="24" coveredstatements="24" conditionals="18" coveredconditionals="16" methods="14" coveredmethods="14"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
@@ -112,23 +117,38 @@
         <line num="88" count="3" type="stmt"/>
         <line num="89" count="2" type="stmt"/>
         <line num="110" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="123" count="2" type="stmt"/>
+        <line num="124" count="3" type="stmt"/>
+        <line num="126" count="8" type="cond" truecount="3" falsecount="1"/>
+        <line num="127" count="8" type="stmt"/>
       </file>
       <file name="string.js" path="C:\Users\jofun\Desktop\usuallyjs\src\string.js">
-        <metrics statements="14" coveredstatements="14" conditionals="13" coveredconditionals="11" methods="13" coveredmethods="13"/>
+        <metrics statements="24" coveredstatements="24" conditionals="17" coveredconditionals="15" methods="19" coveredmethods="18"/>
         <line num="18" count="3" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-        <line num="57" count="1" type="stmt"/>
-        <line num="58" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="59" count="2" type="stmt"/>
-        <line num="72" count="1" type="stmt"/>
-        <line num="84" count="1" type="stmt"/>
-        <line num="86" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="104" count="1" type="stmt"/>
-        <line num="106" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="129" count="7" type="cond" truecount="3" falsecount="0"/>
-        <line num="130" count="63" type="cond" truecount="4" falsecount="0"/>
+        <line num="42" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="87" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="107" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="130" count="7" type="cond" truecount="3" falsecount="0"/>
+        <line num="131" count="63" type="cond" truecount="4" falsecount="0"/>
+        <line num="142" count="1" type="stmt"/>
+        <line num="156" count="1" type="stmt"/>
+        <line num="157" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="159" count="6" type="stmt"/>
+        <line num="172" count="1" type="stmt"/>
+        <line num="173" count="1" type="stmt"/>
+        <line num="174" count="2" type="stmt"/>
+        <line num="176" count="2" type="stmt"/>
+        <line num="177" count="2" type="stmt"/>
       </file>
       <file name="type.js" path="C:\Users\jofun\Desktop\usuallyjs\src\type.js">
         <metrics statements="11" coveredstatements="11" conditionals="6" coveredconditionals="6" methods="10" coveredmethods="10"/>
@@ -142,7 +162,7 @@
         <line num="101" count="4" type="stmt"/>
         <line num="115" count="5" type="stmt"/>
         <line num="129" count="7" type="stmt"/>
-        <line num="146" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="146" count="17" type="cond" truecount="2" falsecount="0"/>
       </file>
     </metrics>
   </project>

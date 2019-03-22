@@ -90,3 +90,33 @@ export const throttle = (fn, wait) => {
     }
   }
 }
+
+/**
+ * 管道函数，占位符“$”为上一个函数的运算结果，如：pipe(x, `a |> b($, y)`) 等价于 b(a(x), y)。
+ * @function pipe
+ * @param {*} param - 函数参数。
+ * @param {string} line - 管道线。
+ * @return {*}
+ * @example
+ * const x = 1;
+ * const y = 3;
+ * 
+ * const a = n => n + 1;
+ * const b = (x, y)=> x * y;
+ * const c = n => n * n;
+ * 
+ * pipe(x, `a |> b($, y)`)
+ * // => 6
+ * 
+ * pipe(x, `a |> c`)
+ * // => 4
+ */
+export const pipe = (param, line) => {
+  return line.split('|>')
+    .reduce((acc, fn) => {
+      fn = fn.indexOf('(') > -1
+        ? fn.replace(/[\(|,]\s*\$\s*[\)|,]/g, w => w.replace('$', 'acc'))
+        : `${fn}(acc)`
+      return acc = new Function('acc', 'return ' + fn)(acc)
+    }, param)
+}

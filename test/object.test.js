@@ -39,7 +39,7 @@ test('renameKeys', () => {
 
 test('omit', () => {
   const o = U.omit({ a: 1, b: '2', c: 3 }, ['b'])
-  expect(o).toEqual({ a: 1, c: 3 })
+  expect(o).toEqual({ a: 1, c: 3})
 })
 
 test('isEmpty', () => {
@@ -66,4 +66,12 @@ test('isEmpty', () => {
   expect(b).toBeTruthy()
   b = U.isEmpty(new Date())
   expect(b).toBeTruthy()
+})
+
+test('overValues', () => {
+  expect(U.overValues).toBeInstanceOf(Function)
+  let o = U.overValues({a: 1, b: 2}, {a: 5})
+  expect(o).toEqual({ a: 5, b: 2})
+  o = U.overValues({a: 1, b: 2, c: [0, 2]}, {a: 5}, {b: 3, c: 5})
+  expect(o).toEqual({ a: 5, b: 3, c: 5})
 })
