@@ -49,6 +49,16 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
+<summary>v2.4.2</summary><br />
+1、更新时间：2019-04-20<br />
+
+2、更新内容：<br />
+
+ （1）、新增 minus 函数，将数值转换为负数<br />
+</details>
+<br />
+
+<details>
 <summary>v2.4.1</summary><br />
 1、更新时间：2019-03-22<br />
 

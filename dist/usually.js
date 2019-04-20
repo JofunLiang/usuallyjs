@@ -606,7 +606,7 @@
       return store[key] || (store[key] = value !== undefined ? value : {});
     })('versions', []).push({
       version: _core.version,
-      mode: _library ? 'pure' : 'global',
+      mode: 'global',
       copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
     });
   });
@@ -1567,7 +1567,7 @@
    * U.keepFixed(-15.12, 4)
    * // => -15.1200
    * 
-   * * U.keepFixed(15.1234, 2)
+   * U.keepFixed(15.1234, 2)
    * // => -15.12
    */
 
@@ -1583,6 +1583,22 @@
     val = "".concat(val).substring(0, i);
     return useFiller ? val.padEnd(i, '0') : val;
   };
+  /**
+   * 将数值转换为负数值
+   * @function minus
+   * @param {number|string} val - 数值，可以是数字字符串
+   * @return {number}
+   * @example
+   * U.minus('0')
+   * // => 0
+   * 
+   * U.minus(15)
+   * // => -15
+   */
+
+  var minus = function minus(val) {
+    return 0 - Math.abs(val);
+  };
 
   var number = /*#__PURE__*/Object.freeze({
     isInt: isInt,
@@ -1590,7 +1606,8 @@
     inRange: inRange,
     round: round,
     random: random,
-    keepFixed: keepFixed
+    keepFixed: keepFixed,
+    minus: minus
   });
 
   /** @module Function */

@@ -135,7 +135,7 @@ export const random = (start, end) => (
  * U.keepFixed(-15.12, 4)
  * // => -15.1200
  * 
- * * U.keepFixed(15.1234, 2)
+ * U.keepFixed(15.1234, 2)
  * // => -15.12
  */
 export const keepFixed = (val, precision, useFiller = true) => {
@@ -147,3 +147,17 @@ export const keepFixed = (val, precision, useFiller = true) => {
   val = `${val}`.substring(0, i)
   return useFiller ? val.padEnd(i, '0') : val
 }
+
+/**
+ * 将数值转换为负数值
+ * @function minus
+ * @param {number|string} val - 数值，可以是数字字符串
+ * @return {number}
+ * @example
+ * U.minus('0')
+ * // => 0
+ * 
+ * U.minus(15)
+ * // => -15
+ */
+export const minus = val => 0 - Math.abs(val)
