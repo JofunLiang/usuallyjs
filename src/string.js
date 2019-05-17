@@ -1,4 +1,5 @@
 /** @module String */
+import { isUndefined } from './type'
 
 /**
  * 获取字符串的字节长度
@@ -157,6 +158,52 @@ export const extendHex = shortHex => {
   return '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0)
     .split('')
     .map(x => x + x)
+    .join('')
+}
+
+/**
+ * 将16进制hex色值转为rgb（或rgba）色值
+ * @function hexToRGB
+ * @param {string} hex - 字符串，16进制hex色值
+ * @param {number} alpha - 可选，色彩透明度
+ * @return {string}
+ * @example
+ * U.hexToRGB('#e5f')
+ * // => rgb(238,85,255)
+ * 
+ * U.hexToRGB('e5f')
+ * // => rgb(238,85,255)
+ * 
+ * U.hexToRGB('#e5f', 0.5)
+ * // => rgba(238,85,255,0.5)
+ */
+export const hexToRGB = (hex, alpha) => {
+  const hasAlpha = !isUndefined(alpha)
+  let result = hex.slice(hex.startsWith('#') ? 1 : 0)
+  if (result.length === 3) result = [...result].map(s => s + s).join('')
+  result = result.match(/[0-9a-f]{2}/gi)
+    .map(s => parseInt(s, 16))
+    .concat(hasAlpha ? [alpha] : [])
+    .join(',')
+  return `rgb${hasAlpha ? 'a' : ''}(${result})`
+}
+
+/**
+ * 将rgb（或rgba）色值转为16进制hex色值
+ * @function RGBToHex
+ * @param {string} rgb - 字符串，rgb（或rgba）色值
+ * @return {string}
+ * @example
+ * U.RGBToHex('rgb(238,85,255)')
+ * // => #ee55ff
+ * 
+ * U.RGBToHex('rgba(238,85,255,0.5)')
+ * // => #ee55ff
+ */
+export const RGBToHex = rgb => {
+  return '#' + rgb.match(/\d{1,3}/g)
+    .slice(0, 3)
+    .map(s => Number(s).toString(16).padStart(2, '0'))
     .join('')
 }
 

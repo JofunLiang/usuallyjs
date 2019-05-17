@@ -135,7 +135,7 @@ export const random = (start, end) => (
  * U.keepFixed(-15.12, 4)
  * // => -15.1200
  * 
- * * U.keepFixed(15.1234, 2)
+ * U.keepFixed(15.1234, 2)
  * // => -15.12
  */
 export const keepFixed = (val, precision, useFiller = true) => {
