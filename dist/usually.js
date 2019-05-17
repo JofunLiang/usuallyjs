@@ -42,7 +42,7 @@
 
   var objectSpread = _objectSpread;
 
-  var version = "2.4.1";
+  var version = "2.4.2";
 
   function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
