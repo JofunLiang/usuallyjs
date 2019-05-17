@@ -75,6 +75,22 @@ test('extendHex', () => {
   expect(hex).toBe('#5500aa')
 })
 
+test('hexToRGB', () => {
+  let r = U.hexToRGB('#e5f')
+  expect(r).toBe('rgb(238,85,255)')
+  r = U.hexToRGB('e5f')
+  expect(r).toBe('rgb(238,85,255)')
+  r = U.hexToRGB('#e5f', 0.5)
+  expect(r).toBe('rgba(238,85,255,0.5)')
+})
+
+test('RGBToHex', () => {
+  let r = U.RGBToHex('rgb(238,85,255)')
+  expect(r).toBe('#ee55ff')
+  r = U.RGBToHex('rgba(238,85,255,0.5)')
+  expect(r).toBe('#ee55ff')
+})
+
 test('parseCookie', () => {
   const cookie = U.parseCookie('taken=bar; equation=E%3Dmc%5E2')
   expect(cookie).toEqual({taken: 'bar', equation: 'E=mc^2'})

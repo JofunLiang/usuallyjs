@@ -1567,7 +1567,7 @@
    * U.keepFixed(-15.12, 4)
    * // => -15.1200
    * 
-   * * U.keepFixed(15.1234, 2)
+   * U.keepFixed(15.1234, 2)
    * // => -15.12
    */
 
@@ -3114,6 +3114,17 @@
     overValues: overValues
   });
 
+  // https://github.com/zloirock/core-js/issues/280
+
+
+  _export(_export.P + _export.F * /Version\/10\.\d+(\.\d+)? Safari\//.test(_userAgent), 'String', {
+    padStart: function padStart(maxLength
+    /* , fillString = ' ' */
+    ) {
+      return _stringPad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, true);
+    }
+  });
+
   var STARTS_WITH = 'startsWith';
   var $startsWith = ''[STARTS_WITH];
   _export(_export.P + _export.F * _failsIsRegexp(STARTS_WITH), 'String', {
@@ -3188,8 +3199,6 @@
     }];
   });
 
-  /** @module String */
-
   /**
    * 获取字符串的字节长度
    * @function byteSize
@@ -3205,6 +3214,7 @@
    * U.byteSize('hello')
    * // => 5
    */
+
   var byteSize = function byteSize(str) {
     return new Blob([str]).size;
   };
@@ -3368,6 +3378,52 @@
     }).join('');
   };
   /**
+   * 将16进制hex色值转为rgb（或rgba）色值
+   * @function hexToRGB
+   * @param {string} hex - 字符串，16进制hex色值
+   * @param {number} alpha - 可选，色彩透明度
+   * @return {string}
+   * @example
+   * U.hexToRGB('#e5f')
+   * // => rgb(238,85,255)
+   * 
+   * U.hexToRGB('e5f')
+   * // => rgb(238,85,255)
+   * 
+   * U.hexToRGB('#e5f', 0.5)
+   * // => rgba(238,85,255,0.5)
+   */
+
+  var hexToRGB = function hexToRGB(hex, alpha) {
+    var hasAlpha = !isUndefined(alpha);
+    var result = hex.slice(hex.startsWith('#') ? 1 : 0);
+    if (result.length === 3) result = toConsumableArray(result).map(function (s) {
+      return s + s;
+    }).join('');
+    result = result.match(/[0-9a-f]{2}/gi).map(function (s) {
+      return parseInt(s, 16);
+    }).concat(hasAlpha ? [alpha] : []).join(',');
+    return "rgb".concat(hasAlpha ? 'a' : '', "(").concat(result, ")");
+  };
+  /**
+   * 将rgb（或rgba）色值转为16进制hex色值
+   * @function RGBToHex
+   * @param {string} rgb - 字符串，rgb（或rgba）色值
+   * @return {string}
+   * @example
+   * U.RGBToHex('rgb(238,85,255)')
+   * // => #ee55ff
+   * 
+   * U.RGBToHex('rgba(238,85,255,0.5)')
+   * // => #ee55ff
+   */
+
+  var RGBToHex = function RGBToHex(rgb) {
+    return '#' + rgb.match(/\d{1,3}/g).slice(0, 3).map(function (s) {
+      return Number(s).toString(16).padStart(2, '0');
+    }).join('');
+  };
+  /**
    * 解析cookie字符串
    * @function parseCookie
    * @param {string} str - 字符串
@@ -3397,6 +3453,8 @@
     mask: mask,
     randomHex: randomHex,
     extendHex: extendHex,
+    hexToRGB: hexToRGB,
+    RGBToHex: RGBToHex,
     parseCookie: parseCookie
   });
 
