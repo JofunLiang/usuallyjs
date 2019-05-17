@@ -59,10 +59,3 @@ test('keepFixed', () => {
   a = U.keepFixed(15.1234564, 4, false) === '15.1234'
   expect(a).toBeTruthy()
 })
-
-test('minus', () => {
-  let a = U.minus('0')
-  expect(a).toBe(0)
-  a = U.minus(15)
-  expect(a).toBe(-15)
-})
