@@ -56,8 +56,6 @@ test('nextMonth', () => {
   expect(d).toBe('1974-12-12T02:21:18.787Z')
   d = U.nextMonth('2018/12/3').toISOString()
   expect(d).toBe('2019-01-02T16:00:00.000Z')
-  d = U.nextMonth() - new Date() === U.getMonthDays() * 24 * 60 * 60 * 1000
-  expect(d).toBeTruthy()
 })
 
 test('isAfterDate', () => {

@@ -43,18 +43,6 @@ export const deepFreeze = obj => {
 }
 
 /**
- * 为对象中的属性分配默认值。
- * @function defaults
- * @param {object} obj - 目标对象
- * @param {...object} defs - 源对象（用于扩展目标对象属性）
- * @return {object}
- * @example
- * U.defaults({ a: 1, c: 5, d: 8}, { b: 2 }, { a: 3, c: 7})
- * // => { a: 1, c: 5, d: 8, b: 2 }
- */
-export const defaults = (obj, ...defs) => Object.assign({}, obj, ...defs.reverse(), obj)
-
-/**
  * 重命名对象的key名称。
  * @function renameKeys
  * @param {object} map - 由oldKey：newKey键值对组成的对象
@@ -108,23 +96,3 @@ export const omit = (obj, arr) => (
  * U.isEmpty(false) // => true
  */
 export const isEmpty = val => !(Object.keys(val) || val).length
-
-/**
- * 覆盖对象的值。
- * @function overValues
- * @param {obj} obj - 被覆盖的对象
- * @param {...others} others - 提供覆盖值的对象
- * @return {object}
- * @example
- * U.overValues({a: 1, b: 2}, {a: 5})
- * // => {a: 5, b: 2}
- */
-export const overValues = (obj, ...others) => {
-  return [...others].reduce(
-    (acc, other) => Object.keys(obj).reduce(
-      (a, k) => {
-        a[k] = isObject(other[k]) ? overValues(obj[k], other[k]) : (other[k] || obj[k])
-        return a
-      }, obj),
-    {})
-}
