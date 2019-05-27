@@ -55,7 +55,9 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 2、更新内容：<br />
 
  （1）、优化构建流程<br />
- （2）、删除overValues函数和defaults函数
+ （2）、删除overValues函数和defaults函数<br />
+ （3）、删除bind函数<br />
+ （4）、新增求平均值函数——average函数和averageBy函数
 </details>
 <br />
 

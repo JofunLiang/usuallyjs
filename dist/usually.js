@@ -1545,6 +1545,28 @@
     val = "".concat(val).substring(0, i);
     return useFiller ? val.padEnd(i, '0') : val;
   };
+  /**
+   * 求平均值函数
+   * @function average
+   * @param {number} args - 参数列表，数值类型
+   * @return {number}
+   * @example
+   * U.average(10, 20)
+   * // => 15
+   * 
+   * U.average(-10, -20, 30, 40)
+   * // => 10
+   */
+
+  var average = function average() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return args.reduce(function (acc, v) {
+      return acc + v;
+    }, 0) / args.length;
+  };
 
   var number = /*#__PURE__*/Object.freeze({
     isInt: isInt,
@@ -1552,7 +1574,8 @@
     inRange: inRange,
     round: round,
     random: random,
-    keepFixed: keepFixed
+    keepFixed: keepFixed,
+    average: average
   });
 
   _export(_export.S, 'Date', {
@@ -1591,36 +1614,6 @@
     };
   };
   /**
-   * 创建一个新的函数fn，在调用时设置this关键字为提供的值。并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。
-   * @function bind
-   * @param {function} fn - 函数。
-   * @param {obj} context - this绑定的对象。
-   * @param {*} boundArgs - 默认参数。
-   * @return {function}
-   * @example
-   * function greet(greeting, punctuation) {
-   *   return greeting + ' ' + this.user + punctuation
-   * }
-   * const freddy = { user: 'fred' }
-   * const freddyBound = U.bind(greet, freddy)
-   * console.log(freddyBound('hi', '!')); 
-   * // => 'hi fred!'
-   */
-
-  var bind = function bind(fn, context) {
-    for (var _len2 = arguments.length, boundArgs = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-      boundArgs[_key2 - 2] = arguments[_key2];
-    }
-
-    return function () {
-      for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-        args[_key3] = arguments[_key3];
-      }
-
-      return fn.apply(context, [].concat(boundArgs, args));
-    };
-  };
-  /**
    * 将函数fn转为防抖函数。返回防抖函数。
    * @function debounce
    * @param {function} fn - 函数。
@@ -1640,8 +1633,8 @@
     return function () {
       var _this = this;
 
-      for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-        args[_key4] = arguments[_key4];
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
       }
 
       clearTimeout(timeoutId);
@@ -1717,7 +1710,6 @@
 
   var fn = /*#__PURE__*/Object.freeze({
     once: once,
-    bind: bind,
     debounce: debounce,
     throttle: throttle,
     pipe: pipe
@@ -2611,7 +2603,7 @@
    * @param {array} fn.array - 可选，当前正在处理的数组
    * @return {object}
    * @example
-   * const obj = mapObject([1, 2, 3], i => i * 2)
+   * const obj = U.mapObject([1, 2, 3], i => i * 2)
    * // => {1: 2, 2: 4, 3: 6}
    */
 
@@ -2622,6 +2614,29 @@
       return acc;
     }, {});
   };
+  /**
+   * 求数组内元素特定键或键映射的平均值
+   * @function averageBy
+   * @param {array} arr - 求值数组
+   * @param {function|string} fn - 键值运算映射函数或键名
+   * @return {number}
+   * @example
+   * const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+   * 
+   * U.averageBy(arr, 'a')
+   * // => 1.5
+   * 
+   * U.averageBy(arr, o => o.a * o.b)
+   * // => 5
+   */
+
+  var averageBy = function averageBy(arr, fn) {
+    return arr.map(isFunction(fn) ? fn : function (val) {
+      return val[fn];
+    }).reduce(function (acc, v) {
+      return acc + v;
+    }, 0) / arr.length;
+  };
 
   var array = /*#__PURE__*/Object.freeze({
     lastItem: lastItem,
@@ -2629,7 +2644,8 @@
     uniqueItemsBy: uniqueItemsBy,
     repeatItems: repeatItems,
     initArray: initArray,
-    mapObject: mapObject
+    mapObject: mapObject,
+    averageBy: averageBy
   });
 
   var meta = _meta.onFreeze;

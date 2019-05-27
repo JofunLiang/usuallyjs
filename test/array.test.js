@@ -52,3 +52,11 @@ test('mapObject', () => {
   let obj = U.mapObject([1, 2, 3], val => val * 2)
   expect(obj).toEqual({1: 2, 2: 4, 3: 6})
 })
+
+test('averageBy', () => {
+  const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+  let r = U.averageBy(arr, 'a')
+  expect(r).toBe(1.5)
+  r = U.averageBy(arr, o => o.a * o.b)
+  expect(r).toBe(5)
+})
