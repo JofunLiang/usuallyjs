@@ -2637,6 +2637,48 @@
       return acc + v;
     }, 0) / arr.length;
   };
+  /**
+   * 求数组内元素特定键或键映射的最大值
+   * @function maxBy
+   * @param {array} arr - 求值数组
+   * @param {function|string} fn - 键值运算映射函数或键名
+   * @return {number}
+   * @example
+   * const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+   * 
+   * U.max(arr, 'a')
+   * // => 2
+   * 
+   * U.maxBy(arr, o => o.a * o.b)
+   * // => 8
+   */
+
+  var maxBy = function maxBy(arr, fn) {
+    return Math.max.apply(Math, toConsumableArray(arr.map(isFunction(fn) ? fn : function (v) {
+      return v[fn];
+    })));
+  };
+  /**
+   * 求数组内元素特定键或键映射的最小值
+   * @function minBy
+   * @param {array} arr - 求值数组
+   * @param {function|string} fn - 键值运算映射函数或键名
+   * @return {number}
+   * @example
+   * const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+   * 
+   * U.minBy(arr, 'a')
+   * // => 1
+   * 
+   * U.minBy(arr, o => o.a * o.b)
+   * // => 2
+   */
+
+  var minBy = function minBy(arr, fn) {
+    return Math.min.apply(Math, toConsumableArray(arr.map(isFunction(fn) ? fn : function (v) {
+      return v[fn];
+    })));
+  };
 
   var array = /*#__PURE__*/Object.freeze({
     lastItem: lastItem,
@@ -2645,7 +2687,9 @@
     repeatItems: repeatItems,
     initArray: initArray,
     mapObject: mapObject,
-    averageBy: averageBy
+    averageBy: averageBy,
+    maxBy: maxBy,
+    minBy: minBy
   });
 
   var meta = _meta.onFreeze;
