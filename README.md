@@ -50,7 +50,7 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 
 <details>
 <summary>v3.0.0</summary><br />
-1、更新时间：2019-05-25<br />
+1、更新时间：2019-05-30<br />
 
 2、更新内容：<br />
 
@@ -59,7 +59,7 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
  （3）、删除bind函数<br />
  （4）、新增求平均值函数——average函数和averageBy函数<br />
  （5）、新增求数组内对象属性最大值函数——maxBy函数<br />
- （6）、新增求数组内对象属性最小值函数——minBy函数<br />
+ （6）、新增求数组内对象属性最小值函数——minBy函数
 </details>
 <br />
 

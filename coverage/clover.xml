@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1559132557540" clover="3.2.0">
-  <project timestamp="1559132557541" name="All files">
+<coverage generated="1559218825875" clover="3.2.0">
+  <project timestamp="1559218825875" name="All files">
     <metrics statements="149" coveredstatements="138" conditionals="116" coveredconditionals="104" methods="91" coveredmethods="84" elements="356" coveredelements="326" complexity="0" loc="149" ncloc="149" packages="1" files="7" classes="7"/>
     <file name="array.js" path="C:\Users\jofun\Desktop\usuallyjs\src\array.js">
       <metrics statements="18" coveredstatements="18" conditionals="15" coveredconditionals="15" methods="18" coveredmethods="18"/>
