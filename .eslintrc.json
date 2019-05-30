@@ -10,25 +10,5 @@
   },
   "overrides": [
     {"files": [ "src/*.js" ]}
-  ],
-  "rules": {
-    "indent": ["error", 2, {"SwitchCase": 1}], //缩进2个空格
-    "quotes": [ 2, "single" ], //强制使用单引号
-    "semi": ["error", "never"], //要求或禁止使用分号而不是 ASI
-    "no-extra-semi": "error", //禁止不必要的分号
-    "no-dupe-keys": 2, //在创建对象字面量时不允许键重复 {a:1,a:1}
-    "no-else-return": 2, //如果if语句里面有return,后面不能跟else语句
-    "no-func-assign": 2, //禁止重复的函数声明
-    "no-mixed-spaces-and-tabs": [2, false], //禁止混用tab和空格
-    "no-multiple-empty-lines": [1, {"max": 2}], //空行最多不能超过2行
-    "no-spaced-func": 2 ,//函数调用时 函数名与()之间不能有空格
-    "no-undef": 1, //不能有未定义的变量
-    "no-unused-vars": [2, {"vars": "all", "args": "after-used"}], //不能有声明后未被使用的变量或参数
-    "no-var": 0, //禁用var，用let和const代替
-    "no-with": 2, //禁用with
-    "camelcase": 2, //强制驼峰法命名
-    "comma-dangle": [2, "never"], //对象字面量项尾不能有逗号
-    "default-case": 2 ,//switch语句最后必须有default
-    "comma-spacing": [2, {"before": false, "after": true}] // 控制逗号前后的空格
-  }
+  ]
 }

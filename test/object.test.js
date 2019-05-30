@@ -26,11 +26,6 @@ test('deepFreeze', () => {
   expect(flag).toThrow(`Cannot assign to read only property 'a' of object '#<Object>'`)
 })
 
-test('defaults', () => {
-  const o = U.defaults({ a: 1, c: 5, d: 8}, { b: 2 }, { a: 3, c: 7})
-  expect(o).toEqual({ a: 1, c: 5, d: 8, b: 2 })
-})
-
 test('renameKeys', () => {
   let o = {name: 'john', job: 'fonts', detail: [1, 2]}
   o = U.renameKeys({job: 'possion'}, o)
@@ -44,11 +39,7 @@ test('omit', () => {
 
 test('isEmpty', () => {
   expect(U.isEmpty).toBeInstanceOf(Function)
-  let b = U.isEmpty(new Map())
-  expect(b).toBeTruthy()
-  b = U.isEmpty(new Set())
-  expect(b).toBeTruthy()
-  b = U.isEmpty({})
+  let b = U.isEmpty({})
   expect(b).toBeTruthy()
   b = U.isEmpty([])
   expect(b).toBeTruthy()
@@ -66,12 +57,4 @@ test('isEmpty', () => {
   expect(b).toBeTruthy()
   b = U.isEmpty(new Date())
   expect(b).toBeTruthy()
-})
-
-test('overValues', () => {
-  expect(U.overValues).toBeInstanceOf(Function)
-  let o = U.overValues({a: 1, b: 2}, {a: 5})
-  expect(o).toEqual({ a: 5, b: 2})
-  o = U.overValues({a: 1, b: 2, c: [0, 2]}, {a: 5}, {b: 3, c: 5})
-  expect(o).toEqual({ a: 5, b: 3, c: 5})
 })

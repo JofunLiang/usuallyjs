@@ -52,3 +52,27 @@ test('mapObject', () => {
   let obj = U.mapObject([1, 2, 3], val => val * 2)
   expect(obj).toEqual({1: 2, 2: 4, 3: 6})
 })
+
+test('averageBy', () => {
+  const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+  let r = U.averageBy(arr, 'a')
+  expect(r).toBe(1.5)
+  r = U.averageBy(arr, o => o.a * o.b)
+  expect(r).toBe(5)
+})
+
+test('maxBy', () => {
+  const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+  let r = U.maxBy(arr, 'a')
+  expect(r).toBe(2)
+  r = U.maxBy(arr, o => o.a * o.b)
+  expect(r).toBe(8)
+})
+
+test('minBy', () => {
+  const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+  let r = U.minBy(arr, 'a')
+  expect(r).toBe(1)
+  r = U.minBy(arr, o => o.a * o.b)
+  expect(r).toBe(2)
+})

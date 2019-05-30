@@ -1,22 +1,25 @@
 {
   "presets": [
     [
-      "@babel/preset-env",
+      "@babel/env",
       {
         "targets":{
           "browsers": "last 2 versions, > 1%, ie >= 10, Android >= 4.4, iOS >= 8"
         },
-        "modules": false,
-        "useBuiltIns": "usage"
+        "modules": false
       },
     ]
   ],
   "env": {
     "test": {
-      "presets": [["@babel/preset-env"]]
+      "presets": [["@babel/env"]]
     }
   },
   "plugins": [
-    ["@babel/plugin-transform-runtime"]
+    [
+      "@babel/plugin-transform-runtime",  {
+        "corejs": 2
+      }
+    ]
   ]
 }

@@ -108,7 +108,7 @@ export const initArray = (len, val = null) => (
  * @param {array} fn.array - 可选，当前正在处理的数组
  * @return {object}
  * @example
- * const obj = mapObject([1, 2, 3], i => i * 2)
+ * const obj = U.mapObject([1, 2, 3], i => i * 2)
  * // => {1: 2, 2: 4, 3: 6}
  */
 export const mapObject = (arr, fn) => {
@@ -118,3 +118,56 @@ export const mapObject = (arr, fn) => {
     return acc
   }, {})
 }
+
+/**
+ * 求数组内元素特定键或键映射的平均值
+ * @function averageBy
+ * @param {array} arr - 求值数组
+ * @param {function|string} fn - 键值运算映射函数或键名
+ * @return {number}
+ * @example
+ * const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+ * 
+ * U.averageBy(arr, 'a')
+ * // => 1.5
+ * 
+ * U.averageBy(arr, o => o.a * o.b)
+ * // => 5
+ */
+export const averageBy = (arr, fn) => (
+  arr.map(isFunction(fn) ? fn : val => val[fn]).reduce((acc, v) => acc + v, 0) / arr.length
+)
+
+/**
+ * 求数组内元素特定键或键映射的最大值
+ * @function maxBy
+ * @param {array} arr - 求值数组
+ * @param {function|string} fn - 键值运算映射函数或键名
+ * @return {number}
+ * @example
+ * const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+ * 
+ * U.max(arr, 'a')
+ * // => 2
+ * 
+ * U.maxBy(arr, o => o.a * o.b)
+ * // => 8
+ */
+export const maxBy = (arr, fn) => Math.max(...arr.map(isFunction(fn) ? fn : v => v[fn]))
+
+/**
+ * 求数组内元素特定键或键映射的最小值
+ * @function minBy
+ * @param {array} arr - 求值数组
+ * @param {function|string} fn - 键值运算映射函数或键名
+ * @return {number}
+ * @example
+ * const arr = [{a: 1, b: 2}, {a: 2, b: 4}]
+ * 
+ * U.minBy(arr, 'a')
+ * // => 1
+ * 
+ * U.minBy(arr, o => o.a * o.b)
+ * // => 2
+ */
+export const minBy = (arr, fn) => Math.min(...arr.map(isFunction(fn) ? fn : v => v[fn]))

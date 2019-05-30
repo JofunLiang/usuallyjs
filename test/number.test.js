@@ -59,3 +59,10 @@ test('keepFixed', () => {
   a = U.keepFixed(15.1234564, 4, false) === '15.1234'
   expect(a).toBeTruthy()
 })
+
+test('average', () => {
+  let n = U.average(10, 20)
+  expect(n).toBe(15)
+  n = U.average(-10, -20, 30, 40)
+  expect(n).toBe(10)
+})
