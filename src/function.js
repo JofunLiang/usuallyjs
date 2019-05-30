@@ -20,24 +20,6 @@ export const once = fn => {
 }
 
 /**
- * 创建一个新的函数fn，在调用时设置this关键字为提供的值。并在调用新函数时，将给定参数列表作为原函数的参数序列的前若干项。
- * @function bind
- * @param {function} fn - 函数。
- * @param {obj} context - this绑定的对象。
- * @param {*} boundArgs - 默认参数。
- * @return {function}
- * @example
- * function greet(greeting, punctuation) {
- *   return greeting + ' ' + this.user + punctuation
- * }
- * const freddy = { user: 'fred' }
- * const freddyBound = U.bind(greet, freddy)
- * console.log(freddyBound('hi', '!')); 
- * // => 'hi fred!'
- */
-export const bind = (fn, context, ...boundArgs) => (...args) => fn.apply(context, [...boundArgs, ...args])
-
-/**
  * 将函数fn转为防抖函数。返回防抖函数。
  * @function debounce
  * @param {function} fn - 函数。

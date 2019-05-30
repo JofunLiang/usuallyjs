@@ -147,3 +147,17 @@ export const keepFixed = (val, precision, useFiller = true) => {
   val = `${val}`.substring(0, i)
   return useFiller ? val.padEnd(i, '0') : val
 }
+
+/**
+ * 求平均值函数
+ * @function average
+ * @param {number} args - 参数列表，数值类型
+ * @return {number}
+ * @example
+ * U.average(10, 20)
+ * // => 15
+ * 
+ * U.average(-10, -20, 30, 40)
+ * // => 10
+ */
+export const average = (...args) => args.reduce((acc, v) => acc + v, 0) / args.length

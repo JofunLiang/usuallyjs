@@ -49,13 +49,28 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
+<summary>v3.0.0</summary><br />
+1、更新时间：2019-05-30<br />
+
+2、更新内容：<br />
+
+ （1）、优化构建流程<br />
+ （2）、删除overValues函数和defaults函数<br />
+ （3）、删除bind函数<br />
+ （4）、新增求平均值函数——average函数和averageBy函数<br />
+ （5）、新增求数组内对象属性最大值函数——maxBy函数<br />
+ （6）、新增求数组内对象属性最小值函数——minBy函数
+</details>
+<br />
+
+<details>
 <summary>v2.4.2</summary><br />
 1、更新时间：2019-05-18<br />
 
 2、更新内容：<br />
 
  （1）、新增 hexToRGB 函数，将16进制hex色值转为rgb（或rgba）色值<br />
- （1）、新增 RGBToHex 函数，将rgb（或rgba）色值转为16进制hex色值
+ （2）、新增 RGBToHex 函数，将rgb（或rgba）色值转为16进制hex色值
 </details>
 <br />
 
