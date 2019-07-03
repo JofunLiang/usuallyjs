@@ -939,7 +939,7 @@
 
   var objectSpread = _objectSpread;
 
-  var version = "3.0.0";
+  var version = "3.0.1";
 
   _export(_export.S, 'Array', {
     isArray: _isArray
@@ -2857,6 +2857,206 @@
     isEmpty: isEmpty
   });
 
+  // fast apply, http://jsperf.lnkit.com/fast-apply/5
+  var _invoke = function (fn, args, that) {
+    var un = that === undefined;
+
+    switch (args.length) {
+      case 0:
+        return un ? fn() : fn.call(that);
+
+      case 1:
+        return un ? fn(args[0]) : fn.call(that, args[0]);
+
+      case 2:
+        return un ? fn(args[0], args[1]) : fn.call(that, args[0], args[1]);
+
+      case 3:
+        return un ? fn(args[0], args[1], args[2]) : fn.call(that, args[0], args[1], args[2]);
+
+      case 4:
+        return un ? fn(args[0], args[1], args[2], args[3]) : fn.call(that, args[0], args[1], args[2], args[3]);
+    }
+
+    return fn.apply(that, args);
+  };
+
+  var arraySlice = [].slice;
+  var factories = {};
+
+  var construct = function (F, len, args) {
+    if (!(len in factories)) {
+      for (var n = [], i = 0; i < len; i++) n[i] = 'a[' + i + ']'; // eslint-disable-next-line no-new-func
+
+
+      factories[len] = Function('F,a', 'return new F(' + n.join(',') + ')');
+    }
+
+    return factories[len](F, args);
+  };
+
+  var _bind = Function.bind || function bind(that
+  /* , ...args */
+  ) {
+    var fn = _aFunction(this);
+    var partArgs = arraySlice.call(arguments, 1);
+
+    var bound = function ()
+    /* args... */
+    {
+      var args = partArgs.concat(arraySlice.call(arguments));
+      return this instanceof bound ? construct(fn, args.length, args) : _invoke(fn, args, that);
+    };
+
+    if (_isObject(fn.prototype)) bound.prototype = fn.prototype;
+    return bound;
+  };
+
+  var rConstruct = (_global.Reflect || {}).construct; // MS Edge supports only 2 arguments and argumentsList argument is optional
+  // FF Nightly sets third argument as `new.target`, but does not create `this` from it
+
+  var NEW_TARGET_BUG = _fails(function () {
+    function F() {
+      /* empty */
+    }
+
+    return !(rConstruct(function () {
+      /* empty */
+    }, [], F) instanceof F);
+  });
+  var ARGS_BUG = !_fails(function () {
+    rConstruct(function () {
+      /* empty */
+    });
+  });
+  _export(_export.S + _export.F * (NEW_TARGET_BUG || ARGS_BUG), 'Reflect', {
+    construct: function construct(Target, args
+    /* , newTarget */
+    ) {
+      _aFunction(Target);
+      _anObject(args);
+      var newTarget = arguments.length < 3 ? Target : _aFunction(arguments[2]);
+      if (ARGS_BUG && !NEW_TARGET_BUG) return rConstruct(Target, args, newTarget);
+
+      if (Target == newTarget) {
+        // w/o altered newTarget, optimization for 0-4 arguments
+        switch (args.length) {
+          case 0:
+            return new Target();
+
+          case 1:
+            return new Target(args[0]);
+
+          case 2:
+            return new Target(args[0], args[1]);
+
+          case 3:
+            return new Target(args[0], args[1], args[2]);
+
+          case 4:
+            return new Target(args[0], args[1], args[2], args[3]);
+        } // w/o altered newTarget, lot of arguments case
+
+
+        var $args = [null];
+        $args.push.apply($args, args);
+        return new (_bind.apply(Target, $args))();
+      } // with altered newTarget, not support built-in constructors
+
+
+      var proto = newTarget.prototype;
+      var instance = _objectCreate(_isObject(proto) ? proto : Object.prototype);
+      var result = Function.apply.call(Target, instance, args);
+      return _isObject(result) ? result : instance;
+    }
+  });
+
+  var construct$1 = _core.Reflect.construct;
+
+  var construct$2 = construct$1;
+
+  /* eslint-disable no-proto */
+
+  var check = function (O, proto) {
+    _anObject(O);
+    if (!_isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
+  };
+
+  var _setProto = {
+    set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
+    function (test, buggy, set) {
+      try {
+        set = _ctx(Function.call, _objectGopd.f(Object.prototype, '__proto__').set, 2);
+        set(test, []);
+        buggy = !(test instanceof Array);
+      } catch (e) {
+        buggy = true;
+      }
+
+      return function setPrototypeOf(O, proto) {
+        check(O, proto);
+        if (buggy) O.__proto__ = proto;else set(O, proto);
+        return O;
+      };
+    }({}, false) : undefined),
+    check: check
+  };
+
+  _export(_export.S, 'Object', {
+    setPrototypeOf: _setProto.set
+  });
+
+  var setPrototypeOf = _core.Object.setPrototypeOf;
+
+  var setPrototypeOf$1 = setPrototypeOf;
+
+  var setPrototypeOf$2 = createCommonjsModule(function (module) {
+    function _setPrototypeOf(o, p) {
+      module.exports = _setPrototypeOf = setPrototypeOf$1 || function _setPrototypeOf(o, p) {
+        o.__proto__ = p;
+        return o;
+      };
+
+      return _setPrototypeOf(o, p);
+    }
+
+    module.exports = _setPrototypeOf;
+  });
+
+  var construct$3 = createCommonjsModule(function (module) {
+    function isNativeReflectConstruct() {
+      if (typeof Reflect === "undefined" || !construct$2) return false;
+      if (construct$2.sham) return false;
+      if (typeof Proxy === "function") return true;
+
+      try {
+        Date.prototype.toString.call(construct$2(Date, [], function () {}));
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function _construct(Parent, args, Class) {
+      if (isNativeReflectConstruct()) {
+        module.exports = _construct = construct$2;
+      } else {
+        module.exports = _construct = function _construct(Parent, args, Class) {
+          var a = [null];
+          a.push.apply(a, args);
+          var Constructor = Function.bind.apply(Parent, a);
+          var instance = new Constructor();
+          if (Class) setPrototypeOf$2(instance, Class.prototype);
+          return instance;
+        };
+      }
+
+      return _construct.apply(null, arguments);
+    }
+
+    module.exports = _construct;
+  });
+
   var _stringWs = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' + '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
 
   var space = '[' + _stringWs + ']';
@@ -3145,6 +3345,27 @@
       return acc;
     }, {});
   };
+  /**
+   * 字符串转日期对象
+   * @function stringToDate
+   * @param {string} str - 字符串
+   * @return {date}
+   * @example
+   * U.stringToDate('2019/5-06')
+   * // => Mon May 06 2019 00:00:00 GMT+0800 (中国标准时间)
+   * 
+   * U.stringToDate('2019-5-06 20:21:22:500')
+   * // => Mon May 06 2019 20:21:22 GMT+0800 (中国标准时间)
+   */
+
+  var stringToDate = function stringToDate(str) {
+    var arr = str.split(/[^0-9]+/);
+
+    var d = construct$3(Date, toConsumableArray(arr));
+
+    d.setMonth(d.getMonth() - 1);
+    return d;
+  };
 
   var string = /*#__PURE__*/Object.freeze({
     byteSize: byteSize,
@@ -3159,7 +3380,8 @@
     extendHex: extendHex,
     hexToRGB: hexToRGB,
     RGBToHex: RGBToHex,
-    parseCookie: parseCookie
+    parseCookie: parseCookie,
+    stringToDate: stringToDate
   });
 
   var usually = objectSpread({

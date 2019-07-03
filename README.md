@@ -49,6 +49,16 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
+<summary>v3.0.1</summary><br />
+1、更新时间：2019-07-03<br />
+
+2、更新内容：<br />
+
+ （1）、新增字符串转日期对象函数——stringToDate函数<br />
+</details>
+<br />
+
+<details>
 <summary>v3.0.0</summary><br />
 1、更新时间：2019-05-30<br />
 
