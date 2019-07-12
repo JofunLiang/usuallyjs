@@ -1,6 +1,6 @@
 'use strict'
 
-import * as U from '../src/array'
+import * as U from '../src'
 
 test('lastItem', () => {
   const item = U.lastItem([1, 1, 2, 3])

@@ -224,3 +224,22 @@ export const parseCookie = str => {
       return acc
     }, {})
 }
+
+/**
+ * 字符串转日期对象
+ * @function stringToDate
+ * @param {string} str - 字符串
+ * @return {date}
+ * @example
+ * U.stringToDate('2019/5-06')
+ * // => Mon May 06 2019 00:00:00 GMT+0800 (中国标准时间)
+ * 
+ * U.stringToDate('2019-5-06 20:21:22:500')
+ * // => Mon May 06 2019 20:21:22 GMT+0800 (中国标准时间)
+ */
+export const stringToDate = str => {
+  const arr = str.split(/[^0-9]+/)
+  const d = new Date(...arr)
+  d.setMonth(d.getMonth() - 1)
+  return d
+}

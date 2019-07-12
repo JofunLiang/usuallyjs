@@ -1,6 +1,6 @@
 'use strict'
 
-import * as U from '../src/object'
+import * as U from '../src'
 
 test('deepClone', () => {
   let a = { foo: 'bar', obj: { a: 1, b: [2, 3] } }

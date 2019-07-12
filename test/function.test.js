@@ -1,6 +1,6 @@
 'use strict'
 
-import * as U from '../src/function'
+import * as U from '../src'
 
 test('once', () => {
   expect(U.once).toBeInstanceOf(Function)
