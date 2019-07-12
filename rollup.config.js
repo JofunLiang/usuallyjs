@@ -23,7 +23,7 @@ const plugins = [
 
 export default [
   {
-    input: 'src/index.js',
+    input: 'src/usually.js',
     output: {
       name: 'U',
       file: 'dist/usually.js',
@@ -32,7 +32,7 @@ export default [
     plugins: plugins
   },
   {
-    input: 'src/index.js',
+    input: 'src/usually.js',
     output: {
       name: 'U',
       file: 'dist/usually.min.js',

@@ -66,8 +66,9 @@ $ npm run jsdoc
   * array.js: 数组模块。
   * date.js: 日期模块。
   * function.js: 函数模块。
-  * index.js: 主文件。
   * number.js: 数字模块。
   * object.js: 对象模块。
   * string.js: 字符串模块。
   * type.js: 类型判断模块。
+  * index.js: 包含所有模块的主文件。
+  * usually.js: 用于rollup打包的主文件。

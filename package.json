@@ -1,12 +1,8 @@
 {
   "name": "usuallyjs",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A JavaScript utility functions library for modern web development.",
-  "main": "dist/usually.min.js",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "main": "src/index.js",
   "scripts": {
     "test": "jest --coverage",
     "server": "node server.js",
@@ -40,6 +36,7 @@
     "@babel/runtime-corejs2": "^7.4.5",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
+    "connect": "^3.7.0",
     "core-js": "^2.6.8",
     "docdash": "^1.0.1",
     "jest": "^24.8.0",
@@ -50,10 +47,7 @@
     "rollup-plugin-eslint": "^5.0.0",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-uglify": "^6.0.0"
-  },
-  "dependencies": {
-    "connect": "^3.6.6",
-    "serve-static": "^1.13.2"
+    "rollup-plugin-uglify": "^6.0.0",
+    "serve-static": "^1.14.1"
   }
 }

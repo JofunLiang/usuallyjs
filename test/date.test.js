@@ -1,6 +1,6 @@
 'use strict'
 
-import * as U from '../src/date'
+import * as U from '../src'
 
 test('dateFormat', () => {
   let d = U.dateFormat(new Date(2018, 11, 10))
