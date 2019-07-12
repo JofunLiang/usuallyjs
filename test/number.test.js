@@ -1,6 +1,6 @@
 'use strict'
 
-import * as U from '../src/number'
+import * as U from '../src'
 
 test('isInt', () => {
   expect(U.isInt(0)).toBeTruthy()

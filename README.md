@@ -50,11 +50,13 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 
 <details>
 <summary>v3.0.1</summary><br />
-1、更新时间：2019-07-03<br />
+1、更新时间：2019-07-12<br />
 
 2、更新内容：<br />
 
  （1）、新增字符串转日期对象函数——stringToDate函数<br />
+ （2）、构建优化<br />
+ （3）、直接发布源码，不再转译为ES5
 </details>
 <br />
 
@@ -187,13 +189,13 @@ npm install --save-dev usuallyjs
 
 通过 es6 模块引用：
 ```javascript
-import U from 'usuallyjs'
-```
+// 全部引入
+import * as U from 'usuallyjs'
 
-通过 node 模块引用：
-```javascript
-const U = require('usuallyjs')
+// 按需引入
+import {uniqueItems， mask} from 'usuallyjs'
 ```
+注意：通过 es6 模块引入的是源码，需要自己配置 babel 开发环境。
 
 ### 浏览器安装和使用
 
@@ -205,7 +207,7 @@ const U = require('usuallyjs')
   <head>
     <meta charset="utf-8">
     <title>usually浏览器安装和使用示例</title>
-    <script src="dist/usually.js"></script>
+    <script src="dist/usually.min.js"></script>
   </head>
   <body>
     <script>

@@ -1,6 +1,6 @@
 'use strict'
 
-import * as U from '../src/string'
+import * as U from '../src'
 
 test('byteSize', () => {
   let s = U.byteSize('日')

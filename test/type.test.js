@@ -1,6 +1,6 @@
 'use strict'
 
-import * as U from '../src/type'
+import * as U from '../src'
 
 test('getType', () => {
   let type = U.getType(new Set([1, 2]))
