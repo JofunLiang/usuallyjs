@@ -80,7 +80,7 @@ test('hexToRGB', () => {
   expect(r).toBe('rgb(238,85,255)')
   r = U.hexToRGB('e5f')
   expect(r).toBe('rgb(238,85,255)')
-  r = U.hexToRGB('#e5f', 0.5)
+  r = U.hexToRGB('#ee55ff', 0.5)
   expect(r).toBe('rgba(238,85,255,0.5)')
 })
 
@@ -102,4 +102,16 @@ test('stringToDate', () => {
   expect(r).toBe('2019-05-05T16:00:00.000Z')
   r = U.stringToDate('2019-5-06 20:21:22:500').toISOString()
   expect(r).toBe('2019-05-06T12:21:22.500Z')
+})
+
+test('camelToDash', () => {
+  expect(U.camelToDash).toBeInstanceOf(Function)
+  const s = U.camelToDash('camelCase')
+  expect(s).toBe('camel-case')
+})
+
+test('dashToCamel', () => {
+  expect(U.dashToCamel).toBeInstanceOf(Function)
+  const s = U.dashToCamel('dash-case')
+  expect(s).toBe('dashCase')
 })
