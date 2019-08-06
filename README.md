@@ -49,6 +49,17 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 # 版本历史/更改日志
 
 <details>
+<summary>v3.1.1</summary><br />
+1、更新时间：2019-07-12<br />
+
+2、更新内容：<br />
+
+ （1）、驼峰字符串转横线连接字符串函数——camelToDash函数<br />
+ （2）、横线连接字符串转驼峰字符串——dashToCamel函数<br />
+</details>
+<br />
+
+<details>
 <summary>v3.0.1</summary><br />
 1、更新时间：2019-07-12<br />
 

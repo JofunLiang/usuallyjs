@@ -243,3 +243,25 @@ export const stringToDate = str => {
   d.setMonth(d.getMonth() - 1)
   return d
 }
+
+/**
+ * 驼峰字符串转横线连接字符串
+ * @function camelToDash
+ * @param {string} str - 驼峰字符串
+ * @return {string}
+ * @example 
+ * U.camelToDash('camelCase')
+ * => 'camel-case'
+ */
+export const camelToDash = str => str.replace(/([A-Z])/g,"-$1").toLowerCase()
+
+/**
+ * 横线连接字符串转驼峰字符串
+ * @function dashToCamel
+ * @param {string} str - 横线连接字符串
+ * @return {string}
+ * @example 
+ * U.camelToDash('dash-case')
+ * => 'dashCase'
+ */
+export const dashToCamel = str => str.replace(/\-(\w)/g, (a, l) => l.toUpperCase())
