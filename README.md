@@ -50,7 +50,7 @@ usuallyjs 基于 ES6 开发，抛弃了传统 Web 开发中 DOM 和 BOM 操作�
 
 <details>
 <summary>v3.1.1</summary><br />
-1、更新时间：2019-07-12<br />
+1、更新时间：2019-08-06<br />
 
 2、更新内容：<br />
 
