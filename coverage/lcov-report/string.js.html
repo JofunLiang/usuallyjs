@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">98% </span>
+        <span class="strong">98.18% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>49/50</span>
+        <span class='fraction'>54/55</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">88% </span>
+        <span class="strong">92% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>22/25</span>
+        <span class='fraction'>23/25</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">96% </span>
+        <span class="strong">96.43% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>24/25</span>
+        <span class='fraction'>27/28</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>39/39</span>
+        <span class='fraction'>41/41</span>
       </div>
     </div>
     <p class="quiet">
@@ -291,7 +291,29 @@
 <a name='L243'></a><a href='#L243'>243</a>
 <a name='L244'></a><a href='#L244'>244</a>
 <a name='L245'></a><a href='#L245'>245</a>
-<a name='L246'></a><a href='#L246'>246</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -473,7 +495,7 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -536,6 +558,28 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @module String */
 import { isUndefined } from './type'
 &nbsp;
@@ -718,7 +762,7 @@ export const extendHex = shortHex =&gt; {
 export const hexToRGB = (hex, alpha) =&gt; {
   const hasAlpha = !isUndefined(alpha)
   let result = hex.slice(hex.startsWith('#') ? 1 : 0)
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (result.length === 3) result = [...result].map(s =&gt; s + s).join('')
+  if (result.length === 3) result = [...result].map(s =&gt; s + s).join('')
   result = result.match(/[0-9a-f]{2}/gi)
     .map(s =&gt; parseInt(s, 16))
     .concat(hasAlpha ? [alpha] : [])
@@ -781,13 +825,35 @@ export const stringToDate = str =&gt; {
   d.setMonth(d.getMonth() - 1)
   return d
 }
+&nbsp;
+/**
+ * 驼峰字符串转横线连接字符串
+ * @function camelToDash
+ * @param {string} str - 驼峰字符串
+ * @return {string}
+ * @example 
+ * U.camelToDash('camelCase')
+ * =&gt; 'camel-case'
+ */
+export const camelToDash = str =&gt; str.replace(/([A-Z])/g,"-$1").toLowerCase()
+&nbsp;
+/**
+ * 横线连接字符串转驼峰字符串
+ * @function dashToCamel
+ * @param {string} str - 横线连接字符串
+ * @return {string}
+ * @example 
+ * U.camelToDash('dash-case')
+ * =&gt; 'dashCase'
+ */
+export const dashToCamel = str =&gt; str.replace(/\-(\w)/g, (a, l) =&gt; l.toUpperCase())
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 12 2019 23:00:27 GMT+0800 (GMT+08:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 06 2019 22:14:21 GMT+0800 (GMT+08:00)
 </div>
 </div>
 <script src="prettify.js"></script>

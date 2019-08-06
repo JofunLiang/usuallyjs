@@ -963,7 +963,7 @@
 
 	var defineProperty$3 = _defineProperty;
 
-	var version = "3.0.1";
+	var version = "3.1.1";
 
 	_export(_export.S, 'Array', {
 	  isArray: _isArray
@@ -3329,6 +3329,34 @@
 	  d.setMonth(d.getMonth() - 1);
 	  return d;
 	};
+	/**
+	 * 驼峰字符串转横线连接字符串
+	 * @function camelToDash
+	 * @param {string} str - 驼峰字符串
+	 * @return {string}
+	 * @example 
+	 * U.camelToDash('camelCase')
+	 * => 'camel-case'
+	 */
+
+	var camelToDash = function camelToDash(str) {
+	  return str.replace(/([A-Z])/g, "-$1").toLowerCase();
+	};
+	/**
+	 * 横线连接字符串转驼峰字符串
+	 * @function dashToCamel
+	 * @param {string} str - 横线连接字符串
+	 * @return {string}
+	 * @example 
+	 * U.camelToDash('dash-case')
+	 * => 'dashCase'
+	 */
+
+	var dashToCamel = function dashToCamel(str) {
+	  return str.replace(/\-(\w)/g, function (a, l) {
+	    return l.toUpperCase();
+	  });
+	};
 
 
 
@@ -3388,7 +3416,9 @@
 		hexToRGB: hexToRGB,
 		RGBToHex: RGBToHex,
 		parseCookie: parseCookie,
-		stringToDate: stringToDate
+		stringToDate: stringToDate,
+		camelToDash: camelToDash,
+		dashToCamel: dashToCamel
 	});
 
 	function ownKeys$1(object, enumerableOnly) { var keys = keys$1(object); if (getOwnPropertySymbols$1) { keys.push.apply(keys, getOwnPropertySymbols$1(object)); } if (enumerableOnly) keys = keys.filter(function (sym) { return getOwnPropertyDescriptor$1(object, sym).enumerable; }); return keys; }
