@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1565100861153" clover="3.2.0">
-  <project timestamp="1565100861153" name="All files">
+<coverage generated="1565102040049" clover="3.2.0">
+  <project timestamp="1565102040050" name="All files">
     <metrics statements="156" coveredstatements="145" conditionals="116" coveredconditionals="105" methods="95" coveredmethods="88" elements="367" coveredelements="338" complexity="0" loc="156" ncloc="156" packages="1" files="8" classes="8"/>
     <file name="array.js" path="E:\前端\usuallyjs\src\array.js">
       <metrics statements="18" coveredstatements="18" conditionals="15" coveredconditionals="15" methods="18" coveredmethods="18"/>

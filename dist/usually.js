@@ -963,7 +963,7 @@
 
 	var defineProperty$3 = _defineProperty;
 
-	var version = "3.1.1";
+	var version = "3.1.2";
 
 	_export(_export.S, 'Array', {
 	  isArray: _isArray
