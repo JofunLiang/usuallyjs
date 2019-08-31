@@ -58,3 +58,17 @@ test('isEmpty', () => {
   b = U.isEmpty(new Date())
   expect(b).toBeTruthy()
 })
+
+test('get', () => {
+  expect(U.get).toBeInstanceOf(Function)
+  const obj = {
+    name: 'joe',
+    child: [
+      {
+        name: 'john',
+        child: null
+      }
+    ]
+  }
+  expect(U.get(obj, 'child[0].name')).toBe('john')
+})

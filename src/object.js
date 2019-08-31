@@ -96,3 +96,16 @@ export const omit = (obj, arr) => (
  * U.isEmpty(false) // => true
  */
 export const isEmpty = val => !(Object.keys(val) || val).length
+
+/**
+ * 根据obj对象的path路径获取值。
+ * @function get
+ * @param {object} obj - 要检索的对象
+ * @param {string} path - 要获取属性的路径
+ * @return {*}
+ * @example
+ * const obj = {name: 'joe', child: [{name: 'john', child: null}]}
+ * U.get(obj, 'child[0].name')
+ * // => 'john'
+ */
+export const get = (obj, path) => new Function('obj', 'return obj.' + path)(obj)

@@ -963,7 +963,7 @@
 
 	var defineProperty$3 = _defineProperty;
 
-	var version = "3.1.2";
+	var version = "3.2.0";
 
 	_export(_export.S, 'Array', {
 	  isArray: _isArray
@@ -2819,6 +2819,21 @@
 	var isEmpty = function isEmpty(val) {
 	  return !(keys$1(val) || val).length;
 	};
+	/**
+	 * 根据obj对象的path路径获取值。
+	 * @function get
+	 * @param {object} obj - 要检索的对象
+	 * @param {string} path - 要获取属性的路径
+	 * @return {*}
+	 * @example
+	 * const obj = {name: 'joe', child: [{name: 'john', child: null}]}
+	 * U.get(obj, 'child[0].name')
+	 * // => 'john'
+	 */
+
+	var get = function get(obj, path) {
+	  return new Function('obj', 'return obj.' + path)(obj);
+	};
 
 	// fast apply, http://jsperf.lnkit.com/fast-apply/5
 	var _invoke = function (fn, args, that) {
@@ -3403,6 +3418,7 @@
 		renameKeys: renameKeys,
 		omit: omit,
 		isEmpty: isEmpty,
+		get: get,
 		byteSize: byteSize,
 		reverseString: reverseString,
 		stringifyURL: stringifyURL,
