@@ -1,5 +1,6 @@
 /** @module String */
 import { isUndefined } from './type'
+import { random } from './number'
 
 /**
  * 获取字符串的字节长度
@@ -141,6 +142,28 @@ export const mask = (str, start = 0, end = 0, mask = '*') => [...`${str}`].map(
  * // => "#f13ba7"
  */
 export const randomHex = () => '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6)
+
+/**
+ * 随机生成rgba色值
+ * @function randomRgba
+ * @param {number} [min=0] - 可选，最小色阶
+ * @param {number} [max=256] - 可选，最大色阶
+ * @param {number} [alpha=1] - 可选，透明度
+ * @return {string}
+ * @example
+ * U.randomRgba()
+ * // => rgba(223,135,252,1)
+ * 
+ * U.randomRgba(154, 211, 0.5)
+ * // => rgba(191,178,179,0.5)
+ */
+export const randomRgba = (min = 0, max = 256, alpha = 1) => {
+  const color = Array.from({ length: 3 })
+    .reduce(acc => [...acc, Math.floor(random(min, max))], [])
+    .concat(alpha ? [alpha] : [0])
+    .join(',')
+  return `rgba(${color})`
+}
 
 /**
  * 将3位16进制色值转为6位
