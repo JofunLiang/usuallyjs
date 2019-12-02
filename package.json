@@ -9,7 +9,7 @@
     "server": "node server.js",
     "jsdoc": "jsdoc -c jsdoc.config.json ./README.md && npm run server",
     "dev": "rollup -w -c",
-    "build": "rollup -c && npm run test && npm run jsdoc"
+    "build": "rollup -c && npm run jsdoc"
   },
   "jest": {
     "testRegex": "/test/.*.test.js?$"

@@ -17,7 +17,7 @@
 
 	var _core = createCommonjsModule(function (module) {
 	  var core = module.exports = {
-	    version: '2.6.9'
+	    version: '2.6.10'
 	  };
 	  if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 	});
@@ -2659,6 +2659,24 @@
 	    return v[fn];
 	  })));
 	};
+	/**
+	 * 将数组切割分组函数
+	 * @function chunk
+	 * @param {array} arr - 切割的数组
+	 * @param {number} size - 切割数组的长度
+	 * @return {array}
+	 * @example
+	 * chunk([1, 2, 3, 4, 5], 2)
+	 * => [[1,2],[3,4],[5]]
+	 */
+
+	var chunk = function chunk(arr, size) {
+	  return from_1$1({
+	    length: Math.ceil(arr.length / size)
+	  }, function (v, i) {
+	    return arr.slice(i * size, i * size + size);
+	  });
+	};
 
 	var meta = _meta.onFreeze;
 	_objectSap('freeze', function ($freeze) {
@@ -2716,9 +2734,9 @@
 
 	var assign$1 = assign;
 
-	function ownKeys(object, enumerableOnly) { var keys = keys$1(object); if (getOwnPropertySymbols$1) { keys.push.apply(keys, getOwnPropertySymbols$1(object)); } if (enumerableOnly) keys = keys.filter(function (sym) { return getOwnPropertyDescriptor$1(object, sym).enumerable; }); return keys; }
+	function ownKeys(object, enumerableOnly) { var keys = keys$1(object); if (getOwnPropertySymbols$1) { var symbols = getOwnPropertySymbols$1(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return getOwnPropertyDescriptor$1(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { defineProperty$3(target, key, source[key]); }); } else if (getOwnPropertyDescriptors$1) { defineProperties$1(target, getOwnPropertyDescriptors$1(source)); } else { ownKeys(source).forEach(function (key) { defineProperty$1(target, key, getOwnPropertyDescriptor$1(source, key)); }); } } return target; }
+	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty$3(target, key, source[key]); }); } else if (getOwnPropertyDescriptors$1) { defineProperties$1(target, getOwnPropertyDescriptors$1(source)); } else { ownKeys(Object(source)).forEach(function (key) { defineProperty$1(target, key, getOwnPropertyDescriptor$1(source, key)); }); } } return target; }
 	/**
 	 * 对象深复制函数
 	 * @function deepClone
@@ -3242,6 +3260,34 @@
 	  return '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
 	};
 	/**
+	 * 随机生成rgba色值
+	 * @function randomRgba
+	 * @param {number} [min=0] - 可选，最小色阶
+	 * @param {number} [max=256] - 可选，最大色阶
+	 * @param {number} [alpha=1] - 可选，透明度
+	 * @return {string}
+	 * @example
+	 * U.randomRgba()
+	 * // => rgba(223,135,252,1)
+	 * 
+	 * U.randomRgba(154, 211, 0.5)
+	 * // => rgba(191,178,179,0.5)
+	 */
+
+	var randomRgba = function randomRgba() {
+	  var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	  var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 256;
+	  var alpha = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+
+	  var color = from_1$1({
+	    length: 3
+	  }).reduce(function (acc) {
+	    return [].concat(toConsumableArray(acc), [Math.floor(random(min, max))]);
+	  }, []).concat(alpha ? [alpha] : [0]).join(',');
+
+	  return "rgba(".concat(color, ")");
+	};
+	/**
 	 * 将3位16进制色值转为6位
 	 * @function extendHex
 	 * @param {string} shortHex - 字符串
@@ -3339,10 +3385,11 @@
 	var stringToDate = function stringToDate(str) {
 	  var arr = str.split(/[^0-9]+/);
 
-	  var d = construct$3(Date, toConsumableArray(arr));
+	  if (arr[1]) {
+	    arr[1] = Number(arr[1]) - 1;
+	  }
 
-	  d.setMonth(d.getMonth() - 1);
-	  return d;
+	  return construct$3(Date, toConsumableArray(arr));
 	};
 	/**
 	 * 驼峰字符串转横线连接字符串
@@ -3413,6 +3460,7 @@
 		averageBy: averageBy,
 		maxBy: maxBy,
 		minBy: minBy,
+		chunk: chunk,
 		deepClone: deepClone,
 		deepFreeze: deepFreeze,
 		renameKeys: renameKeys,
@@ -3428,6 +3476,7 @@
 		unescapeHTML: unescapeHTML,
 		mask: mask,
 		randomHex: randomHex,
+		randomRgba: randomRgba,
 		extendHex: extendHex,
 		hexToRGB: hexToRGB,
 		RGBToHex: RGBToHex,
@@ -3437,9 +3486,9 @@
 		dashToCamel: dashToCamel
 	});
 
-	function ownKeys$1(object, enumerableOnly) { var keys = keys$1(object); if (getOwnPropertySymbols$1) { keys.push.apply(keys, getOwnPropertySymbols$1(object)); } if (enumerableOnly) keys = keys.filter(function (sym) { return getOwnPropertyDescriptor$1(object, sym).enumerable; }); return keys; }
+	function ownKeys$1(object, enumerableOnly) { var keys = keys$1(object); if (getOwnPropertySymbols$1) { var symbols = getOwnPropertySymbols$1(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return getOwnPropertyDescriptor$1(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-	function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(source, true).forEach(function (key) { defineProperty$3(target, key, source[key]); }); } else if (getOwnPropertyDescriptors$1) { defineProperties$1(target, getOwnPropertyDescriptors$1(source)); } else { ownKeys$1(source).forEach(function (key) { defineProperty$1(target, key, getOwnPropertyDescriptor$1(source, key)); }); } } return target; }
+	function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { defineProperty$3(target, key, source[key]); }); } else if (getOwnPropertyDescriptors$1) { defineProperties$1(target, getOwnPropertyDescriptors$1(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { defineProperty$1(target, key, getOwnPropertyDescriptor$1(source, key)); }); } } return target; }
 	var usually$1 = _objectSpread$1({
 	  version: version
 	}, usually);

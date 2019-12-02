@@ -261,10 +261,11 @@ export const parseCookie = str => {
  * // => Mon May 06 2019 20:21:22 GMT+0800 (中国标准时间)
  */
 export const stringToDate = str => {
-  const arr = str.split(/[^0-9]+/)
-  const d = new Date(...arr)
-  d.setMonth(d.getMonth() - 1)
-  return d
+  let arr = str.split(/[^0-9]+/)
+  if (arr[1]) {
+    arr[1] = Number(arr[1]) - 1
+  }
+  return new Date(...arr)
 }
 
 /**
