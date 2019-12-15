@@ -76,3 +76,9 @@ test('minBy', () => {
   r = U.minBy(arr, o => o.a * o.b)
   expect(r).toBe(2)
 })
+
+test('chunk', () => {
+  expect(U.chunk).toBeInstanceOf(Function)
+  const arr = U.chunk([1, 2, 3, 4, 5], 2)
+  expect(arr).toEqual([[1,2],[3,4],[5]])
+})
