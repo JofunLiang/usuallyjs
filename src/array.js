@@ -171,3 +171,19 @@ export const maxBy = (arr, fn) => Math.max(...arr.map(isFunction(fn) ? fn : v =>
  * // => 2
  */
 export const minBy = (arr, fn) => Math.min(...arr.map(isFunction(fn) ? fn : v => v[fn]))
+
+/**
+ * 将数组切割分组函数
+ * @function chunk
+ * @param {array} arr - 切割的数组
+ * @param {number} size - 切割数组的长度
+ * @return {array}
+ * @example
+ * chunk([1, 2, 3, 4, 5], 2)
+ * => [[1,2],[3,4],[5]]
+ */
+export const chunk = (arr, size) => (
+  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+    arr.slice(i * size, i * size + size)
+  )
+)

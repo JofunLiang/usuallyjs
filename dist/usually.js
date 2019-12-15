@@ -963,7 +963,7 @@
 
 	var defineProperty$3 = _defineProperty;
 
-	var version = "3.1.2";
+	var version = "3.2.0";
 
 	_export(_export.S, 'Array', {
 	  isArray: _isArray
@@ -2659,6 +2659,24 @@
 	    return v[fn];
 	  })));
 	};
+	/**
+	 * 将数组切割分组函数
+	 * @function chunk
+	 * @param {array} arr - 切割的数组
+	 * @param {number} size - 切割数组的长度
+	 * @return {array}
+	 * @example
+	 * chunk([1, 2, 3, 4, 5], 2)
+	 * => [[1,2],[3,4],[5]]
+	 */
+
+	var chunk = function chunk(arr, size) {
+	  return from_1$1({
+	    length: Math.ceil(arr.length / size)
+	  }, function (v, i) {
+	    return arr.slice(i * size, i * size + size);
+	  });
+	};
 
 	var meta = _meta.onFreeze;
 	_objectSap('freeze', function ($freeze) {
@@ -2818,6 +2836,21 @@
 
 	var isEmpty = function isEmpty(val) {
 	  return !(keys$1(val) || val).length;
+	};
+	/**
+	 * 根据obj对象的path路径获取值。
+	 * @function get
+	 * @param {object} obj - 要检索的对象
+	 * @param {string} path - 要获取属性的路径
+	 * @return {*}
+	 * @example
+	 * const obj = {name: 'joe', child: [{name: 'john', child: null}]}
+	 * U.get(obj, 'child[0].name')
+	 * // => 'john'
+	 */
+
+	var get = function get(obj, path) {
+	  return new Function('obj', 'return obj.' + path)(obj);
 	};
 
 	// fast apply, http://jsperf.lnkit.com/fast-apply/5
@@ -3227,6 +3260,34 @@
 	  return '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
 	};
 	/**
+	 * 随机生成rgba色值
+	 * @function randomRgba
+	 * @param {number} [min=0] - 可选，最小色阶
+	 * @param {number} [max=256] - 可选，最大色阶
+	 * @param {number} [alpha=1] - 可选，透明度
+	 * @return {string}
+	 * @example
+	 * U.randomRgba()
+	 * // => rgba(223,135,252,1)
+	 * 
+	 * U.randomRgba(154, 211, 0.5)
+	 * // => rgba(191,178,179,0.5)
+	 */
+
+	var randomRgba = function randomRgba() {
+	  var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	  var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 256;
+	  var alpha = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+
+	  var color = from_1$1({
+	    length: 3
+	  }).reduce(function (acc) {
+	    return [].concat(toConsumableArray(acc), [Math.floor(random(min, max))]);
+	  }, []).concat(alpha ? [alpha] : [0]).join(',');
+
+	  return "rgba(".concat(color, ")");
+	};
+	/**
 	 * 将3位16进制色值转为6位
 	 * @function extendHex
 	 * @param {string} shortHex - 字符串
@@ -3324,10 +3385,11 @@
 	var stringToDate = function stringToDate(str) {
 	  var arr = str.split(/[^0-9]+/);
 
-	  var d = construct$3(Date, toConsumableArray(arr));
+	  if (arr[1]) {
+	    arr[1] = Number(arr[1]) - 1;
+	  }
 
-	  d.setMonth(d.getMonth() - 1);
-	  return d;
+	  return construct$3(Date, toConsumableArray(arr));
 	};
 	/**
 	 * 驼峰字符串转横线连接字符串
@@ -3398,11 +3460,13 @@
 		averageBy: averageBy,
 		maxBy: maxBy,
 		minBy: minBy,
+		chunk: chunk,
 		deepClone: deepClone,
 		deepFreeze: deepFreeze,
 		renameKeys: renameKeys,
 		omit: omit,
 		isEmpty: isEmpty,
+		get: get,
 		byteSize: byteSize,
 		reverseString: reverseString,
 		stringifyURL: stringifyURL,
@@ -3412,6 +3476,7 @@
 		unescapeHTML: unescapeHTML,
 		mask: mask,
 		randomHex: randomHex,
+		randomRgba: randomRgba,
 		extendHex: extendHex,
 		hexToRGB: hexToRGB,
 		RGBToHex: RGBToHex,

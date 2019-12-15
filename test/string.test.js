@@ -68,6 +68,12 @@ test('randomHex', () => {
   expect(U.randomHex).toBeInstanceOf(Function)
 })
 
+test('randomRgba', () => {
+  expect(U.randomRgba).toBeInstanceOf(Function)
+  expect(typeof U.randomRgba()).toBe('string')
+  expect(U.randomRgba(120, 121, 0.5)).toBe('rgba(120,120,120,0.5)')
+})
+
 test('extendHex', () => {
   let hex = U.extendHex('#03f')
   expect(hex).toBe('#0033ff')
