@@ -254,18 +254,19 @@ export const parseCookie = str => {
  * @param {string} str - 字符串
  * @return {date}
  * @example
- * U.stringToDate('2019/5-06')
+ * U.stringToDate('2019/5-06').toString()
  * // => Mon May 06 2019 00:00:00 GMT+0800 (中国标准时间)
  * 
- * U.stringToDate('2019-5-06 20:21:22:500')
+ * U.stringToDate('2019-5-06 20:21:22:500').toString()
  * // => Mon May 06 2019 20:21:22 GMT+0800 (中国标准时间)
  */
 export const stringToDate = str => {
-  let arr = str.split(/[^0-9]+/)
-  if (arr[1]) {
-    arr[1] = Number(arr[1]) - 1
-  }
-  return new Date(...arr)
+  const defs = [0, 1, 1, 0, 0, 0]
+  const args = str.split(/[^0-9]+/).map((v, i) => {
+    const val = Number(v) || defs[i]
+    return i === 1 ? (val - 1) : val
+  })
+  return new Date(...args)
 }
 
 /**

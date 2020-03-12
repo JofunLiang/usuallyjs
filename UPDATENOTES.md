@@ -1,6 +1,16 @@
 # 更新日志
 
 <details>
+<summary>v3.2.1</summary><br />
+1、更新时间：2020-03-12<br />
+
+2、更新内容：<br />
+
+ （1）、修复stringToDate月份显示不正确bug<br />
+</details>
+<br />
+
+<details>
 <summary>v3.2.0</summary><br />
 1、更新时间：2019-12-15<br />
 

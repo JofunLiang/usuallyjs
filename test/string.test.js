@@ -104,10 +104,12 @@ test('parseCookie', () => {
 
 test('stringToDate', () => {
   expect(U.stringToDate).toBeInstanceOf(Function)
-  let r = U.stringToDate('2019/5-06').toISOString()
-  expect(r).toBe('2019-05-05T16:00:00.000Z')
-  r = U.stringToDate('2019-5-06 20:21:22:500').toISOString()
-  expect(r).toBe('2019-05-06T12:21:22.500Z')
+  let r = U.stringToDate('2019/5-06').toString()
+  expect(r).toBe('Mon May 06 2019 00:00:00 GMT+0800 (GMT+08:00)')
+  r = U.stringToDate('2019-5-06 20:21:22:500').toString()
+  expect(r).toBe('Mon May 06 2019 20:21:22 GMT+0800 (GMT+08:00)')
+  r = U.stringToDate('2019年2月').toString()
+  expect(r).toBe('Fri Feb 01 2019 00:00:00 GMT+0800 (GMT+08:00)')
 })
 
 test('camelToDash', () => {
