@@ -963,7 +963,7 @@
 
 	var defineProperty$3 = _defineProperty;
 
-	var version = "3.2.0";
+	var version = "3.2.1";
 
 	_export(_export.S, 'Array', {
 	  isArray: _isArray
@@ -3375,21 +3375,20 @@
 	 * @param {string} str - 字符串
 	 * @return {date}
 	 * @example
-	 * U.stringToDate('2019/5-06')
+	 * U.stringToDate('2019/5-06').toString()
 	 * // => Mon May 06 2019 00:00:00 GMT+0800 (中国标准时间)
 	 * 
-	 * U.stringToDate('2019-5-06 20:21:22:500')
+	 * U.stringToDate('2019-5-06 20:21:22:500').toString()
 	 * // => Mon May 06 2019 20:21:22 GMT+0800 (中国标准时间)
 	 */
 
 	var stringToDate = function stringToDate(str) {
-	  var arr = str.split(/[^0-9]+/);
-
-	  if (arr[1]) {
-	    arr[1] = Number(arr[1]) - 1;
-	  }
-
-	  return construct$3(Date, toConsumableArray(arr));
+	  var defs = [0, 1, 1, 0, 0, 0];
+	  var args = str.split(/[^0-9]+/).map(function (v, i) {
+	    var val = Number(v) || defs[i];
+	    return i === 1 ? val - 1 : val;
+	  });
+	  return construct$3(Date, toConsumableArray(args));
 	};
 	/**
 	 * 驼峰字符串转横线连接字符串
